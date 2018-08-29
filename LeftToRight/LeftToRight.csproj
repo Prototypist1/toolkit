@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Prototypist.LeftToRight</AssemblyName>
+    <RootNamespace>Prototypist.LeftToRight</RootNamespace>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
 </Project>
