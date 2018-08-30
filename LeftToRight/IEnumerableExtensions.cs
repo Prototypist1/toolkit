@@ -171,6 +171,11 @@ namespace Prototypist.LeftToRight
 
         public static bool SetEqual<T>(this IEnumerable<T> self, IEnumerable<T> other)
         {
+            if (self is null)
+            {
+                throw new ArgumentNullException(nameof(self));
+            }
+
             return self.Count() == other.Count() && self.Except(other).Count() == 0;
         }
 
@@ -180,6 +185,12 @@ namespace Prototypist.LeftToRight
                 return other is null;
             }
 
+
+            if (other is null)
+            {
+                return false;
+            }
+
             return self.Count() == other.Count() && self.Except(other).Count() == 0;
         }
         
@@ -187,6 +198,10 @@ namespace Prototypist.LeftToRight
             if (self is null)
             {
                 return other is null;
+            }
+
+            if (other is null) {
+                return false;
             }
 
             return self.SequenceEqual(other);

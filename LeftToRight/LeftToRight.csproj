@@ -5,6 +5,16 @@
     <AssemblyName>Prototypist.LeftToRight</AssemblyName>
     <RootNamespace>Prototypist.LeftToRight</RootNamespace>
     <LangVersion>7.1</LangVersion>
+    <Product>Prototypist.LeftToRight</Product>
+    <Description>A set of extensions that facilitate a style of programming like that of Linq where data flows threw a set of modifying method. </Description>
+    <PackageId>Prototypist.LeftToRight</PackageId>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <Version>1.0.0</Version>
+    <PackageProjectUrl>https://github.com/Prototypist1/LeftToRight</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Company>Prototypist.LeftToRight</Company>
+    <Authors>Prototypist.LeftToRight</Authors>
   </PropertyGroup>
 
 </Project>

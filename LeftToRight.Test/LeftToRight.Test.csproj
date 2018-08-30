@@ -11,11 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="BoolExtensions-Test.cs" />
+    <Compile Remove="BoolExtensionsTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="BoolExtensions-Test.cs" />
+    <None Include="BoolExtensionsTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
