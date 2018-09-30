@@ -1,4 +1,4 @@
-﻿namespace Prototypist.LeftToRight
+﻿namespace Prototypist.Fluent
 {
     public class OrType<T1, T2>
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prototypist.LeftToRight
+namespace Prototypist.Fluent
 {
     public static class IntExtensions
     {

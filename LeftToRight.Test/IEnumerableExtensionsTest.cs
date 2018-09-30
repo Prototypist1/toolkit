@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-using Prototypist.LeftToRight;
+using Prototypist.Fluent;
 
-namespace Prototypist.LeftToRight.Test
+namespace Prototypist.Fluent.Test
 {
     public class IEnumerableExtensions
     {
@@ -269,8 +269,7 @@ namespace Prototypist.LeftToRight.Test
         }
 
         #endregion
-
-
+        
         #region NullSafeSequenceEqual
 
         [Fact]

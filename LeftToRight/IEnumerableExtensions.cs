@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Prototypist.LeftToRight
+namespace Prototypist.Fluent
 {
 
     public static class IEnumerableExtensions

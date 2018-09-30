@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prototypist.LeftToRight
+namespace Prototypist.Fluent
 {
     public static class ObjectExtensions
     {
@@ -14,6 +14,12 @@ namespace Prototypist.LeftToRight
         {
             return o is T;
         }
+        
+        public static bool Is<T>(this object o, out T res)
+        {
+            res = o is T t ? t : default;
+            return o is T;
+        }
 
         public static bool NullSafeEqual<T>(this object o, object other)
         {
@@ -22,13 +28,7 @@ namespace Prototypist.LeftToRight
             }
             return o.Equals(other);
         }
-
-        public static bool Is<T>(this object o, out T res)
-        {
-            res = o is T t ? t : default;
-            return o is T;
-        }
-
+        
         public static T Assign<T>(this T t, out T res) {
             res = t;
             return t;
