@@ -6,19 +6,23 @@ namespace Prototypist.Fluent
 {
     public static class ObjectExtensions
     {
-        public static T Cast<T>(this object o) {
-            return (T)o;
+        public static TT Cast<T,TT>(this T o)
+            where TT:T
+        {
+            return (TT)o;
         }
 
-        public static bool Is<T>(this object o)
+        public static bool Is<T, TT>(this T o)
+            where TT : T
         {
-            return o is T;
+            return o is TT;
         }
         
-        public static bool Is<T>(this object o, out T res)
+        public static bool Is<T,TT>(this T o, out TT res)
+            where TT:T
         {
-            res = o is T t ? t : default;
-            return o is T;
+            res = o is TT t ? t : default;
+            return o is TT;
         }
 
         public static bool NullSafeEqual<T>(this object o, object other)
