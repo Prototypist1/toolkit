@@ -12,6 +12,11 @@ namespace Prototypist.Fluent
             return (TT)o;
         }
 
+        public static TT As<TT>(this object o)
+        {
+            return (TT)o;
+        }
+
         public static bool Is<T, TT>(this T o)
             where TT : T
         {
@@ -38,7 +43,7 @@ namespace Prototypist.Fluent
             return t;
         }
 
-        public static T[] ToArray<T>(this T t) {
+        public static T[] AsArray<T>(this T t) {
             return new T[] { t };
         }
 

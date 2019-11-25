@@ -19,13 +19,13 @@
             this.t2 = t2;
         }
 
-        public bool Is(out T1 item)
+        public bool Is1(out T1 item)
         {
             item = t1;
             return isT1;
         }
 
-        public bool Is(out T2 item)
+        public bool Is2(out T2 item)
         {
             item = t2;
             return isT2;
@@ -60,19 +60,19 @@
             this.t3 = t3;
         }
 
-        public bool Is(out T1 item)
+        public bool Is1(out T1 item)
         {
             item = t1;
             return isT1;
         }
 
-        public bool Is(out T2 item)
+        public bool Is2(out T2 item)
         {
             item = t2;
             return isT2;
         }
 
-        public bool Is(out T3 item)
+        public bool Is3(out T3 item)
         {
             item = t3;
             return isT3;
@@ -114,25 +114,25 @@
             this.t4 = t4;
         }
 
-        public bool Is(out T1 item)
+        public bool Is1(out T1 item)
         {
             item = t1;
             return isT1;
         }
 
-        public bool Is(out T2 item)
+        public bool Is2(out T2 item)
         {
             item = t2;
             return isT2;
         }
 
-        public bool Is(out T3 item)
+        public bool Is3(out T3 item)
         {
             item = t3;
             return isT3;
         }
         
-        public bool Is(out T4 item)
+        public bool Is4(out T4 item)
         {
             item = t4;
             return isT4;
@@ -182,31 +182,31 @@
             this.t5 = t5;
         }
 
-        public bool Is(out T1 item)
+        public bool Is1(out T1 item)
         {
             item = t1;
             return isT1;
         }
 
-        public bool Is(out T2 item)
+        public bool Is2(out T2 item)
         {
             item = t2;
             return isT2;
         }
 
-        public bool Is(out T3 item)
+        public bool Is3(out T3 item)
         {
             item = t3;
             return isT3;
         }
 
-        public bool Is(out T4 item)
+        public bool Is4(out T4 item)
         {
             item = t4;
             return isT4;
         }
 
-        public bool Is(out T5 item)
+        public bool Is5(out T5 item)
         {
             item = t5;
             return isT5;

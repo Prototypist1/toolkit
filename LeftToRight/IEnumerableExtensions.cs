@@ -18,12 +18,15 @@ namespace Prototypist.Fluent
             {
                 throw new ArgumentNullException(nameof(measure));
             }
-            
-            T res = default;
-            double score = default;
+
             var enumerator = self.GetEnumerator();
 
-            if (enumerator.MoveNext()) {
+
+            T res;
+
+            double score;
+            if (enumerator.MoveNext())
+            {
                 res = enumerator.Current;
                 score = measure(res);
             }
@@ -31,7 +34,7 @@ namespace Prototypist.Fluent
             {
                 throw new InvalidOperationException($"argument {nameof(self)} is expected to have atleast one element");
             }
-            
+
             while (enumerator.MoveNext())
             {
                 var at = enumerator.Current;
@@ -57,11 +60,13 @@ namespace Prototypist.Fluent
                 throw new ArgumentNullException(nameof(measure));
             }
 
-
-            T res = default;
-            double score = default;
             var enumerator = self.GetEnumerator();
 
+
+
+            T res;
+
+            double score;
             if (enumerator.MoveNext())
             {
                 res = enumerator.Current;
@@ -99,10 +104,12 @@ namespace Prototypist.Fluent
                 throw new ArgumentNullException(nameof(measure));
             }
 
-            T res = default;
-            double score = default;
             var enumerator = self.GetEnumerator();
 
+
+            T res;
+
+            double score;
             if (enumerator.MoveNext())
             {
                 res = enumerator.Current;
@@ -140,11 +147,11 @@ namespace Prototypist.Fluent
                 throw new ArgumentNullException(nameof(measure));
             }
 
-
-            T res = default;
-            double score = default;
             var enumerator = self.GetEnumerator();
 
+            T res;
+
+            double score;
             if (enumerator.MoveNext())
             {
                 res = enumerator.Current;
