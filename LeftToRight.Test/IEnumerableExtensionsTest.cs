@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-using Prototypist.Fluent;
+using Prototypist.Fluent.IEnumerable;
 
 namespace Prototypist.Fluent.Test
 {

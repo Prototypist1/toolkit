@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prototypist.Fluent
+namespace Prototypist.Fluent.Bool
 {
     public static class BoolExtensions
     {
