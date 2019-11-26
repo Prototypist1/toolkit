@@ -1,4 +1,6 @@
-﻿namespace Prototypist.Fluent
+﻿using System;
+
+namespace Prototypist.Fluent
 {
     public class OrType<T1, T2>
     {
@@ -29,6 +31,21 @@
         {
             item = t2;
             return isT2;
+        }
+
+        public T1 Is1OrThrow() {
+            if (isT1) {
+                return t1;
+            }
+            throw new ApplicationException($"expect {typeof(T1).FullName}");
+        }
+        public T2 Is2OrThrow()
+        {
+            if (isT2)
+            {
+                return t2;
+            }
+            throw new ApplicationException($"expect {typeof(T2).FullName}");
         }
     }
 
@@ -76,6 +93,31 @@
         {
             item = t3;
             return isT3;
+        }
+
+        public T1 Is1OrThrow()
+        {
+            if (isT1)
+            {
+                return t1;
+            }
+            throw new ApplicationException($"expect {typeof(T1).FullName}");
+        }
+        public T2 Is2OrThrow()
+        {
+            if (isT2)
+            {
+                return t2;
+            }
+            throw new ApplicationException($"expect {typeof(T2).FullName}");
+        }
+        public T3 Is3OrThrow()
+        {
+            if (isT3)
+            {
+                return t3;
+            }
+            throw new ApplicationException($"expect {typeof(T3).FullName}");
         }
     }
 
@@ -136,6 +178,40 @@
         {
             item = t4;
             return isT4;
+        }
+
+
+        public T1 Is1OrThrow()
+        {
+            if (isT1)
+            {
+                return t1;
+            }
+            throw new ApplicationException($"expect {typeof(T1).FullName}");
+        }
+        public T2 Is2OrThrow()
+        {
+            if (isT2)
+            {
+                return t2;
+            }
+            throw new ApplicationException($"expect {typeof(T2).FullName}");
+        }
+        public T3 Is3OrThrow()
+        {
+            if (isT3)
+            {
+                return t3;
+            }
+            throw new ApplicationException($"expect {typeof(T3).FullName}");
+        }
+        public T4 Is4OrThrow()
+        {
+            if (isT4)
+            {
+                return t4;
+            }
+            throw new ApplicationException($"expect {typeof(T4).FullName}");
         }
     }
     
@@ -210,6 +286,49 @@
         {
             item = t5;
             return isT5;
+        }
+
+
+        public T1 Is1OrThrow()
+        {
+            if (isT1)
+            {
+                return t1;
+            }
+            throw new ApplicationException($"expect {typeof(T1).FullName}");
+        }
+        public T2 Is2OrThrow()
+        {
+            if (isT2)
+            {
+                return t2;
+            }
+            throw new ApplicationException($"expect {typeof(T2).FullName}");
+        }
+        public T3 Is3OrThrow()
+        {
+            if (isT3)
+            {
+                return t3;
+            }
+            throw new ApplicationException($"expect {typeof(T3).FullName}");
+        }
+        public T4 Is4OrThrow()
+        {
+            if (isT4)
+            {
+                return t4;
+            }
+            throw new ApplicationException($"expect {typeof(T4).FullName}");
+        }
+
+        public T5 Is5OrThrow()
+        {
+            if (isT5)
+            {
+                return t5;
+            }
+            throw new ApplicationException($"expect {typeof(T5).FullName}");
         }
     }
 }
