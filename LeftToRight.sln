@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluent", "LeftToRight\Fluent.csproj", "{C070661F-AD0C-4988-AD78-C5CDA2C8FE59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toolbox", "LeftToRight\Toolbox.csproj", "{C070661F-AD0C-4988-AD78-C5CDA2C8FE59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluent.Test", "LeftToRight.Test\Fluent.Test.csproj", "{8C275A02-BC9B-44EF-909D-F00AB552B84E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toolbox.Test", "LeftToRight.Test\Toolbox.Test.csproj", "{8C275A02-BC9B-44EF-909D-F00AB552B84E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

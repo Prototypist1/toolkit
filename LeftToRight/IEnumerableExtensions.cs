@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Prototypist.Fluent.IEnumerable
+namespace Prototypist.Toolbox.IEnumerable
 {
 
     public static class IEnumerableExtensions

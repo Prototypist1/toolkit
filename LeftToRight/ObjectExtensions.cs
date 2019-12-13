@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prototypist.Fluent.Object
+namespace Prototypist.Toolbox.Object
 {
     public static class ObjectExtensions
     {
-        public static TT Cast<T,TT>(this T o)
+        public static TT SafeCastTo<T,TT>(this T o)
             where TT:T
         {
             return (TT)o;
         }
 
-        public static TT As<TT>(this object o)
+        public static TT CastTo<TT>(this object o)
         {
             return (TT)o;
         }

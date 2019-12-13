@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Prototypist.Fluent.Dictionary
+namespace Prototypist.Toolbox.Dictionary
 {
     public static class DictionaryExtensions {
 

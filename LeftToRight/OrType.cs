@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Prototypist.Fluent
+namespace Prototypist.Toolbox
 {
     public class OrType<T1, T2>
     {

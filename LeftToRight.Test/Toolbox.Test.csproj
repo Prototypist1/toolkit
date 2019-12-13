@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>Prototypist.Fluent.Test</AssemblyName>
+    <AssemblyName>Prototypist.Toolbox.Test</AssemblyName>
 
-    <RootNamespace>Prototypist.Fluent.Test</RootNamespace>
+    <RootNamespace>Prototypist.Toolbox.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LeftToRight\Fluent.csproj" />
+    <ProjectReference Include="..\LeftToRight\Toolbox.csproj" />
   </ItemGroup>
 
 </Project>

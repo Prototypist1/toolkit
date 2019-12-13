@@ -4,7 +4,7 @@ using System.Text;
 using Xunit;
 using Prototypist.LeftToRight;
 
-namespace Prototypist.Fluent.Test
+namespace Prototypist.Toolbox.Test
 {
     public class BoolExtensions
     {
