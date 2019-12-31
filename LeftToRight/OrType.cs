@@ -66,10 +66,10 @@ namespace Prototypist.Toolbox
         public override int GetHashCode()
         {
             var hashCode = -447460166;
-            hashCode = hashCode * -1521134295 + EqualityComparer<T1>.Default.GetHashCode(t1);
-            hashCode = hashCode * -1521134295 + isT1.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T2>.Default.GetHashCode(t2);
-            hashCode = hashCode * -1521134295 + isT2.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T1>.Default.GetHashCode(t1);
+            hashCode = (hashCode * -1521134295) + isT1.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T2>.Default.GetHashCode(t2);
+            hashCode = (hashCode * -1521134295) + isT2.GetHashCode();
             return hashCode;
         }
     }
@@ -164,12 +164,12 @@ namespace Prototypist.Toolbox
         public override int GetHashCode()
         {
             var hashCode = 2049221290;
-            hashCode = hashCode * -1521134295 + EqualityComparer<T1>.Default.GetHashCode(t1);
-            hashCode = hashCode * -1521134295 + isT1.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T2>.Default.GetHashCode(t2);
-            hashCode = hashCode * -1521134295 + isT2.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T3>.Default.GetHashCode(t3);
-            hashCode = hashCode * -1521134295 + isT3.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T1>.Default.GetHashCode(t1);
+            hashCode = (hashCode * -1521134295) + isT1.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T2>.Default.GetHashCode(t2);
+            hashCode = (hashCode * -1521134295) + isT2.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T3>.Default.GetHashCode(t3);
+            hashCode = (hashCode * -1521134295) + isT3.GetHashCode();
             return hashCode;
         }
     }
@@ -288,14 +288,14 @@ namespace Prototypist.Toolbox
         public override int GetHashCode()
         {
             var hashCode = 1611974508;
-            hashCode = hashCode * -1521134295 + EqualityComparer<T1>.Default.GetHashCode(t1);
-            hashCode = hashCode * -1521134295 + isT1.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T2>.Default.GetHashCode(t2);
-            hashCode = hashCode * -1521134295 + isT2.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T3>.Default.GetHashCode(t3);
-            hashCode = hashCode * -1521134295 + isT3.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T4>.Default.GetHashCode(t4);
-            hashCode = hashCode * -1521134295 + isT4.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T1>.Default.GetHashCode(t1);
+            hashCode = (hashCode * -1521134295) + isT1.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T2>.Default.GetHashCode(t2);
+            hashCode = (hashCode * -1521134295) + isT2.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T3>.Default.GetHashCode(t3);
+            hashCode = (hashCode * -1521134295) + isT3.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T4>.Default.GetHashCode(t4);
+            hashCode = (hashCode * -1521134295) + isT4.GetHashCode();
             return hashCode;
         }
     }
@@ -439,16 +439,16 @@ namespace Prototypist.Toolbox
         public override int GetHashCode()
         {
             var hashCode = -527366096;
-            hashCode = hashCode * -1521134295 + EqualityComparer<T1>.Default.GetHashCode(t1);
-            hashCode = hashCode * -1521134295 + isT1.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T2>.Default.GetHashCode(t2);
-            hashCode = hashCode * -1521134295 + isT2.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T3>.Default.GetHashCode(t3);
-            hashCode = hashCode * -1521134295 + isT3.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T4>.Default.GetHashCode(t4);
-            hashCode = hashCode * -1521134295 + isT4.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<T5>.Default.GetHashCode(t5);
-            hashCode = hashCode * -1521134295 + isT5.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T1>.Default.GetHashCode(t1);
+            hashCode = (hashCode * -1521134295) + isT1.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T2>.Default.GetHashCode(t2);
+            hashCode = (hashCode * -1521134295) + isT2.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T3>.Default.GetHashCode(t3);
+            hashCode = (hashCode * -1521134295) + isT3.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T4>.Default.GetHashCode(t4);
+            hashCode = (hashCode * -1521134295) + isT4.GetHashCode();
+            hashCode = (hashCode * -1521134295) + EqualityComparer<T5>.Default.GetHashCode(t5);
+            hashCode = (hashCode * -1521134295) + isT5.GetHashCode();
             return hashCode;
         }
     }
