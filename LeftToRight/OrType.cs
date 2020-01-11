@@ -49,6 +49,42 @@ namespace Prototypist.Toolbox
             throw new ApplicationException($"expect {typeof(T2).FullName}");
         }
 
+        public void Switch(Action<T1> a1, Action<T2> a2) {
+            if (isT1) {
+                a1(t1);
+            }
+            if (isT2) {
+                a2(t2);
+            }
+        }
+
+        public T SwitchReturns<T>(Func<T1,T> a1, Func<T2,T> a2)
+        {
+            if (isT1)
+            {
+                return a1(t1);
+            }
+            if (isT2)
+            {
+                return a2(t2);
+            }
+            throw new Exception("or type is none of it's types");
+        }
+
+        public bool Is<T>(out T res) {
+            if (isT1 && t1 is T res1)
+            {
+                res = res1;
+                return true;
+            }
+            if (isT2 && t2 is T res2)
+            {
+                res = res2;
+                return true;
+            }
+            throw new Exception("or type is none of it's types");
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as OrType<T1, T2>);
@@ -143,6 +179,60 @@ namespace Prototypist.Toolbox
                 return t3;
             }
             throw new ApplicationException($"expect {typeof(T3).FullName}");
+        }
+
+
+        public void Switch(Action<T1> a1, Action<T2> a2, Action<T3> a3)
+        {
+            if (isT1)
+            {
+                a1(t1);
+            }
+            if (isT2)
+            {
+                a2(t2);
+            }
+            if (isT3)
+            {
+                a3(t3);
+            }
+        }
+
+        public T SwitchReturns<T>(Func<T1, T> a1, Func<T2, T> a2, Func<T3,T> a3)
+        {
+            if (isT1)
+            {
+                return a1(t1);
+            }
+            if (isT2)
+            {
+                return a2(t2);
+            }
+            if (isT3)
+            {
+                return a3(t3);
+            }
+            throw new Exception("or type is none of it's types");
+        }
+
+        public bool Is<T>(out T res)
+        {
+            if (isT1 && t1 is T res1)
+            {
+                res = res1;
+                return true;
+            }
+            if (isT2 && t2 is T res2)
+            {
+                res = res2;
+                return true;
+            }
+            if (isT3 && t3 is T res3)
+            {
+                res = res3;
+                return true;
+            }
+            throw new Exception("or type is none of it's types");
         }
 
         public override bool Equals(object obj)
@@ -266,6 +356,74 @@ namespace Prototypist.Toolbox
             }
             throw new ApplicationException($"expect {typeof(T4).FullName}");
         }
+
+
+        public void Switch(Action<T1> a1, Action<T2> a2, Action<T3> a3, Action<T4> a4)
+        {
+            if (isT1)
+            {
+                a1(t1);
+            }
+            if (isT2)
+            {
+                a2(t2);
+            }
+            if (isT3)
+            {
+                a3(t3);
+            }
+            if (isT4)
+            {
+                a4(t4);
+            }
+        }
+
+        public T SwitchReturns<T>(Func<T1, T> a1, Func<T2, T> a2, Func<T3, T> a3, Func<T4, T> a4)
+        {
+            if (isT1)
+            {
+                return a1(t1);
+            }
+            if (isT2)
+            {
+                return a2(t2);
+            }
+            if (isT3)
+            {
+                return a3(t3);
+            }
+            if (isT4)
+            {
+                return a4(t4);
+            }
+            throw new Exception("or type is none of it's types");
+        }
+
+        public bool Is<T>(out T res)
+        {
+            if (isT1 && t1 is T res1)
+            {
+                res = res1;
+                return true;
+            }
+            if (isT2 && t2 is T res2)
+            {
+                res = res2;
+                return true;
+            }
+            if (isT3 && t3 is T res3)
+            {
+                res = res3;
+                return true;
+            }
+            if (isT4 && t4 is T res4)
+            {
+                res = res4;
+                return true;
+            }
+            throw new Exception("or type is none of it's types");
+        }
+
 
         public override bool Equals(object obj)
         {
@@ -414,6 +572,86 @@ namespace Prototypist.Toolbox
                 return t5;
             }
             throw new ApplicationException($"expect {typeof(T5).FullName}");
+        }
+
+
+        public void Switch(Action<T1> a1, Action<T2> a2, Action<T3> a3, Action<T4> a4, Action<T5> a5)
+        {
+            if (isT1)
+            {
+                a1(t1);
+            }
+            if (isT2)
+            {
+                a2(t2);
+            }
+            if (isT3)
+            {
+                a3(t3);
+            }
+            if (isT4)
+            {
+                a4(t4);
+            }
+            if (isT5)
+            {
+                a5(t5);
+            }
+        }
+
+        public T SwitchReturns<T>(Func<T1, T> a1, Func<T2, T> a2, Func<T3, T> a3, Func<T4, T> a4, Func<T5, T> a5)
+        {
+            if (isT1)
+            {
+                return a1(t1);
+            }
+            if (isT2)
+            {
+                return a2(t2);
+            }
+            if (isT3)
+            {
+                return a3(t3);
+            }
+            if (isT4)
+            {
+                return a4(t4);
+            }
+            if (isT5)
+            {
+                return a5(t5);
+            }
+            throw new Exception("or type is none of it's types");
+        }
+
+        public bool Is<T>(out T res)
+        {
+            if (isT1 && t1 is T res1)
+            {
+                res = res1;
+                return true;
+            }
+            if (isT2 && t2 is T res2)
+            {
+                res = res2;
+                return true;
+            }
+            if (isT3 && t3 is T res3)
+            {
+                res = res3;
+                return true;
+            }
+            if (isT4 && t4 is T res4)
+            {
+                res = res4;
+                return true;
+            }
+            if (isT5 && t5 is T res5)
+            {
+                res = res5;
+                return true;
+            }
+            throw new Exception("or type is none of it's types");
         }
 
         public override bool Equals(object obj)
