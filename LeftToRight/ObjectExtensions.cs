@@ -62,5 +62,9 @@ namespace Prototypist.Toolbox.Object
         {
             return !(o is null);
         }
+
+        public static string ToStringNotNull(this object o) {
+            return o?.ToString() ?? "";
+        }
     }
 }
