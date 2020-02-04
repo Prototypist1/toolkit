@@ -22,6 +22,22 @@ namespace Prototypist.Toolbox
             this.t2 = t2;
         }
 
+        public IIsPossibly<T1> Possibly1() {
+            if (isT1) {
+                return Possibly.Is(t1);
+            }
+            return Possibly.IsNot<T1>();
+        }
+
+        public IIsPossibly<T2> Possibly2()
+        {
+            if (isT2)
+            {
+                return Possibly.Is(t2);
+            }
+            return Possibly.IsNot<T2>();
+        }
+
         public bool Is1(out T1 item)
         {
             item = t1;
@@ -137,6 +153,34 @@ namespace Prototypist.Toolbox
             isT3 = true;
             this.t3 = t3;
         }
+
+        public IIsPossibly<T1> Possibly1()
+        {
+            if (isT1)
+            {
+                return Possibly.Is(t1);
+            }
+            return Possibly.IsNot<T1>();
+        }
+
+        public IIsPossibly<T2> Possibly2()
+        {
+            if (isT2)
+            {
+                return Possibly.Is(t2);
+            }
+            return Possibly.IsNot<T2>();
+        }
+        public IIsPossibly<T3> Possibly3()
+        {
+            if (isT3)
+            {
+                return Possibly.Is(t3);
+            }
+            return Possibly.IsNot<T3>();
+        }
+
+
 
         public bool Is1(out T1 item)
         {
@@ -298,6 +342,45 @@ namespace Prototypist.Toolbox
             isT4 = true;
             this.t4 = t4;
         }
+
+
+        public IIsPossibly<T1> Possibly1()
+        {
+            if (isT1)
+            {
+                return Possibly.Is(t1);
+            }
+            return Possibly.IsNot<T1>();
+        }
+
+        public IIsPossibly<T2> Possibly2()
+        {
+            if (isT2)
+            {
+                return Possibly.Is(t2);
+            }
+            return Possibly.IsNot<T2>();
+        }
+        public IIsPossibly<T3> Possibly3()
+        {
+            if (isT3)
+            {
+                return Possibly.Is(t3);
+            }
+            return Possibly.IsNot<T3>();
+        }
+        public IIsPossibly<T4> Possibly4()
+        {
+            if (isT4)
+            {
+                return Possibly.Is(t4);
+            }
+            return Possibly.IsNot<T4>();
+        }
+
+
+
+
 
         public bool Is1(out T1 item)
         {
@@ -499,6 +582,50 @@ namespace Prototypist.Toolbox
         {
             isT5 = true;
             this.t5 = t5;
+        }
+
+
+
+        public IIsPossibly<T1> Possibly1()
+        {
+            if (isT1)
+            {
+                return Possibly.Is(t1);
+            }
+            return Possibly.IsNot<T1>();
+        }
+
+        public IIsPossibly<T2> Possibly2()
+        {
+            if (isT2)
+            {
+                return Possibly.Is(t2);
+            }
+            return Possibly.IsNot<T2>();
+        }
+        public IIsPossibly<T3> Possibly3()
+        {
+            if (isT3)
+            {
+                return Possibly.Is(t3);
+            }
+            return Possibly.IsNot<T3>();
+        }
+        public IIsPossibly<T4> Possibly4()
+        {
+            if (isT4)
+            {
+                return Possibly.Is(t4);
+            }
+            return Possibly.IsNot<T4>();
+        }
+        public IIsPossibly<T5> Possibly5()
+        {
+            if (isT5)
+            {
+                return Possibly.Is(t5);
+            }
+            return Possibly.IsNot<T5>();
         }
 
         public bool Is1(out T1 item)
