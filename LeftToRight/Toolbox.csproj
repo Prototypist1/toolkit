@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Prototypist.Toolbox</AssemblyName>
     <RootNamespace>Prototypist.Toolbox</RootNamespace>
     <LangVersion>7.1</LangVersion>
@@ -10,14 +10,14 @@
     <PackageId>Prototypist.Toolbox</PackageId>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Version>1.0.0.9</Version>
+    <Version>1.0.0.10</Version>
     <PackageProjectUrl>https://github.com/Prototypist1/LeftToRight</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Company></Company>
     <Authors>@Prototypist1</Authors>
-    <AssemblyVersion>1.0.0.9</AssemblyVersion>
+    <AssemblyVersion>1.0.0.10</AssemblyVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <FileVersion>1.0.0.8</FileVersion>
+    <FileVersion>1.0.0.10</FileVersion>
   </PropertyGroup>
 
 </Project>
