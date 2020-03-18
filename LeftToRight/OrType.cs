@@ -6,13 +6,13 @@ namespace Prototypist.Toolbox
     // these are sort of a hack: https://stackoverflow.com/questions/7664790/why-does-the-c-sharp-compiler-complain-that-types-may-unify-when-they-derive-f/51297066#51297066
     // underscore to indicate such
 #pragma warning disable IDE1006 // Naming Styles
-    public abstract class _OrType1<T1> : IIsPossibly<T1> { }
+    public abstract class _OrType1<T1> :  IIsPossibly<T1> { }
     public abstract class _OrType2<T1, T2> : _OrType1<T1>, IIsPossibly<T2> { }
     public abstract class _OrType3<T1, T2, T3> : _OrType2<T1, T2>, IIsPossibly<T3> { }
     public abstract class _OrType4<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IIsPossibly<T4> { }
 #pragma warning restore IDE1006 // Naming Styles
 
-    public class OrType<T1, T2> : _OrType1<T1>, IEquatable<OrType<T1, T2>>, IIsPossibly<T2>
+    public class OrType<T1, T2> : _OrType1<T1>, IOrType<T1, T2>, IEquatable<OrType<T1, T2>>, IIsPossibly<T2>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -32,8 +32,10 @@ namespace Prototypist.Toolbox
         }
 
         [Obsolete]
-        public IIsPossibly<T1> Possibly1() {
-            if (isT1) {
+        public IIsPossibly<T1> Possibly1()
+        {
+            if (isT1)
+            {
                 return Possibly.Is(t1);
             }
             return Possibly.IsNot<T1>();
@@ -61,8 +63,10 @@ namespace Prototypist.Toolbox
             return isT2;
         }
 
-        public T1 Is1OrThrow() {
-            if (isT1) {
+        public T1 Is1OrThrow()
+        {
+            if (isT1)
+            {
                 return t1;
             }
             throw new ApplicationException($"expect {typeof(T1).FullName}");
@@ -76,16 +80,19 @@ namespace Prototypist.Toolbox
             throw new ApplicationException($"expect {typeof(T2).FullName}");
         }
 
-        public void Switch(Action<T1> a1, Action<T2> a2) {
-            if (isT1) {
+        public void Switch(Action<T1> a1, Action<T2> a2)
+        {
+            if (isT1)
+            {
                 a1(t1);
             }
-            if (isT2) {
+            if (isT2)
+            {
                 a2(t2);
             }
         }
 
-        public T SwitchReturns<T>(Func<T1,T> a1, Func<T2,T> a2)
+        public T SwitchReturns<T>(Func<T1, T> a1, Func<T2, T> a2)
         {
             if (isT1)
             {
@@ -98,7 +105,8 @@ namespace Prototypist.Toolbox
             throw new Exception("or type is none of it's types");
         }
 
-        public bool Is<T>(out T res) {
+        public bool Is<T>(out T res)
+        {
             if (isT1 && t1 is T res1)
             {
                 res = res1;
@@ -138,7 +146,7 @@ namespace Prototypist.Toolbox
     }
 
 
-    public class OrType<T1, T2, T3> : _OrType2<T1, T2>, IEquatable<OrType<T1, T2, T3>>, IIsPossibly<T3>
+    public class OrType<T1, T2, T3> : _OrType2<T1, T2>, IOrType<T1, T2,T3>, IEquatable<OrType<T1, T2, T3>>, IIsPossibly<T3>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -324,7 +332,7 @@ namespace Prototypist.Toolbox
     }
 
 
-    public class OrType<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IEquatable<OrType<T1, T2, T3, T4>>, IIsPossibly<T4>
+    public class OrType<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IOrType<T1, T2, T3,T4>, IEquatable<OrType<T1, T2, T3, T4>>, IIsPossibly<T4>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -563,7 +571,7 @@ namespace Prototypist.Toolbox
         }
     }
 
-    public class OrType<T1, T2, T3, T4, T5> : _OrType4<T1, T2, T3, T4>, IEquatable<OrType<T1, T2, T3, T4, T5>>, IIsPossibly<T5>
+    public class OrType<T1, T2, T3, T4, T5> : _OrType4<T1, T2, T3, T4>, IOrType<T1, T2, T3, T4,T5>, IEquatable<OrType<T1, T2, T3, T4, T5>>, IIsPossibly<T5>
     {
         private readonly T1 t1;
         private readonly bool isT1;
