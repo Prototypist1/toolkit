@@ -58,4 +58,155 @@ namespace Prototypist.Toolbox
         void Switch(Action<T1> a1, Action<T2> a2, Action<T3> a3, Action<T4> a4, Action<T5> a5);
         T SwitchReturns<T>(Func<T1, T> f1, Func<T2, T> f2, Func<T3, T> f3, Func<T4, T> f4, Func<T5, T> f5);
     }
+
+    public static class OrTypeExtensions
+    {
+
+        public static bool Is1<T1, T2>(this IOrType<T1, T2> self, out T1 t1)
+        {
+            if (self.Possibly1() is IIsDefinately<T1> definate)
+            {
+                t1 = definate.Value;
+                return true;
+            }
+            t1 = default;
+            return false;
+        }
+
+        public static bool Is2<T1, T2>(this IOrType<T1, T2> self, out T2 t2)
+        {
+            if (self.Possibly2() is IIsDefinately<T2> definate)
+            {
+                t2 = definate.Value;
+                return true;
+            }
+            t2 = default;
+            return false;
+        }
+
+        public static bool Is1<T1, T2, T3>(this IOrType<T1, T2, T3> self, out T1 t1)
+        {
+            if (self.Possibly1() is IIsDefinately<T1> definate)
+            {
+                t1 = definate.Value;
+                return true;
+            }
+            t1 = default;
+            return false;
+        }
+
+        public static bool Is2<T1, T2, T3>(this IOrType<T1, T2, T3> self, out T2 t2)
+        {
+            if (self.Possibly2() is IIsDefinately<T2> definate)
+            {
+                t2 = definate.Value;
+                return true;
+            }
+            t2 = default;
+            return false;
+        }
+        public static bool Is3<T1, T2, T3>(this IOrType<T1, T2, T3> self, out T3 t3)
+        {
+            if (self.Possibly3() is IIsDefinately<T3> definate)
+            {
+                t3 = definate.Value;
+                return true;
+            }
+            t3 = default;
+            return false;
+        }
+
+        public static bool Is1<T1, T2, T3, T4>(this IOrType<T1, T2, T3, T4> self, out T1 t1)
+        {
+            if (self.Possibly1() is IIsDefinately<T1> definate)
+            {
+                t1 = definate.Value;
+                return true;
+            }
+            t1 = default;
+            return false;
+        }
+
+        public static bool Is2<T1, T2, T3, T4>(this IOrType<T1, T2, T3, T4> self, out T2 t2)
+        {
+            if (self.Possibly2() is IIsDefinately<T2> definate)
+            {
+                t2 = definate.Value;
+                return true;
+            }
+            t2 = default;
+            return false;
+        }
+        public static bool Is3<T1, T2, T3, T4>(this IOrType<T1, T2, T3, T4> self, out T3 t3)
+        {
+            if (self.Possibly3() is IIsDefinately<T3> definate)
+            {
+                t3 = definate.Value;
+                return true;
+            }
+            t3 = default;
+            return false;
+        }
+        public static bool Is4<T1, T2, T3, T4>(this IOrType<T1, T2, T3, T4> self, out T4 t4)
+        {
+            if (self.Possibly4() is IIsDefinately<T4> definate)
+            {
+                t4 = definate.Value;
+                return true;
+            }
+            t4 = default;
+            return false;
+        }
+        public static bool Is1<T1, T2, T3, T4, T5>(this IOrType<T1, T2, T3, T4, T5> self, out T1 t1)
+        {
+            if (self.Possibly1() is IIsDefinately<T1> definate)
+            {
+                t1 = definate.Value;
+                return true;
+            }
+            t1 = default;
+            return false;
+        }
+        public static bool Is2<T1, T2, T3, T4, T5>(this IOrType<T1, T2, T3, T4, T5> self, out T2 t2)
+        {
+            if (self.Possibly2() is IIsDefinately<T2> definate)
+            {
+                t2 = definate.Value;
+                return true;
+            }
+            t2 = default;
+            return false;
+        }
+        public static bool Is3<T1, T2, T3, T4, T5>(this IOrType<T1, T2, T3, T4, T5> self, out T3 t3)
+        {
+            if (self.Possibly3() is IIsDefinately<T3> definate)
+            {
+                t3 = definate.Value;
+                return true;
+            }
+            t3 = default;
+            return false;
+        }
+        public static bool Is4<T1, T2, T3, T4, T5>(this IOrType<T1, T2, T3, T4, T5> self, out T4 t4)
+        {
+            if (self.Possibly4() is IIsDefinately<T4> definate)
+            {
+                t4 = definate.Value;
+                return true;
+            }
+            t4 = default;
+            return false;
+        }
+        public static bool Is5<T1, T2, T3, T4, T5>(this IOrType<T1, T2, T3, T4, T5> self, out T5 t5)
+        {
+            if (self.Possibly5() is IIsDefinately<T5> definate)
+            {
+                t5 = definate.Value;
+                return true;
+            }
+            t5 = default;
+            return false;
+        }
+
+    }
 }

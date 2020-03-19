@@ -145,7 +145,6 @@ namespace Prototypist.Toolbox
         }
     }
 
-
     public class OrType<T1, T2, T3> : _OrType2<T1, T2>, IOrType<T1, T2,T3>, IEquatable<OrType<T1, T2, T3>>, IIsPossibly<T3>
     {
         private readonly T1 t1;
@@ -330,7 +329,6 @@ namespace Prototypist.Toolbox
             return hashCode;
         }
     }
-
 
     public class OrType<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IOrType<T1, T2, T3,T4>, IEquatable<OrType<T1, T2, T3, T4>>, IIsPossibly<T4>
     {
@@ -854,4 +852,5 @@ namespace Prototypist.Toolbox
     }
 
 
+    
 }
