@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Prototypist.Toolbox
 {
-    // these are sort of a hack: https://stackoverflow.com/questions/7664790/why-does-the-c-sharp-compiler-complain-that-types-may-unify-when-they-derive-f/51297066#51297066
-    // underscore to indicate such
-#pragma warning disable IDE1006 // Naming Styles
-    public abstract class _OrType1<T1> :  IIsPossibly<T1> { }
-    public abstract class _OrType2<T1, T2> : _OrType1<T1>, IIsPossibly<T2> { }
-    public abstract class _OrType3<T1, T2, T3> : _OrType2<T1, T2>, IIsPossibly<T3> { }
-    public abstract class _OrType4<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IIsPossibly<T4> { }
-#pragma warning restore IDE1006 // Naming Styles
+//    // these are sort of a hack: https://stackoverflow.com/questions/7664790/why-does-the-c-sharp-compiler-complain-that-types-may-unify-when-they-derive-f/51297066#51297066
+//    // underscore to indicate such
+//#pragma warning disable IDE1006 // Naming Styles
+//    public abstract class _OrType1<T1> :  IIsPossibly<T1> { }
+//    public abstract class _OrType2<T1, T2> : _OrType1<T1>, IIsPossibly<T2> { }
+//    public abstract class _OrType3<T1, T2, T3> : _OrType2<T1, T2>, IIsPossibly<T3> { }
+//    public abstract class _OrType4<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IIsPossibly<T4> { }
+//#pragma warning restore IDE1006 // Naming Styles
 
-    public class OrType<T1, T2> : _OrType1<T1>, IOrType<T1, T2>, IEquatable<OrType<T1, T2>>, IIsPossibly<T2>
+    public class OrType<T1, T2> : IOrType<T1, T2>, IEquatable<OrType<T1, T2>>, IIsPossibly<T2>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -31,7 +31,7 @@ namespace Prototypist.Toolbox
             this.t2 = t2;
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T1> Possibly1()
         {
             if (isT1)
@@ -41,7 +41,7 @@ namespace Prototypist.Toolbox
             return Possibly.IsNot<T1>();
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T2> Possibly2()
         {
             if (isT2)
@@ -49,18 +49,6 @@ namespace Prototypist.Toolbox
                 return Possibly.Is(t2);
             }
             return Possibly.IsNot<T2>();
-        }
-
-        public bool Is1(out T1 item)
-        {
-            item = t1;
-            return isT1;
-        }
-
-        public bool Is2(out T2 item)
-        {
-            item = t2;
-            return isT2;
         }
 
         public T1 Is1OrThrow()
@@ -145,7 +133,7 @@ namespace Prototypist.Toolbox
         }
     }
 
-    public class OrType<T1, T2, T3> : _OrType2<T1, T2>, IOrType<T1, T2,T3>, IEquatable<OrType<T1, T2, T3>>, IIsPossibly<T3>
+    public class OrType<T1, T2, T3> : IOrType<T1, T2,T3>, IEquatable<OrType<T1, T2, T3>>, IIsPossibly<T3>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -173,7 +161,7 @@ namespace Prototypist.Toolbox
             this.t3 = t3;
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T1> Possibly1()
         {
             if (isT1)
@@ -183,7 +171,7 @@ namespace Prototypist.Toolbox
             return Possibly.IsNot<T1>();
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T2> Possibly2()
         {
             if (isT2)
@@ -192,7 +180,7 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<T2>();
         }
-        [Obsolete]
+        
         public IIsPossibly<T3> Possibly3()
         {
             if (isT3)
@@ -200,26 +188,6 @@ namespace Prototypist.Toolbox
                 return Possibly.Is(t3);
             }
             return Possibly.IsNot<T3>();
-        }
-
-
-
-        public bool Is1(out T1 item)
-        {
-            item = t1;
-            return isT1;
-        }
-
-        public bool Is2(out T2 item)
-        {
-            item = t2;
-            return isT2;
-        }
-
-        public bool Is3(out T3 item)
-        {
-            item = t3;
-            return isT3;
         }
 
         public T1 Is1OrThrow()
@@ -330,7 +298,7 @@ namespace Prototypist.Toolbox
         }
     }
 
-    public class OrType<T1, T2, T3, T4> : _OrType3<T1, T2, T3>, IOrType<T1, T2, T3,T4>, IEquatable<OrType<T1, T2, T3, T4>>, IIsPossibly<T4>
+    public class OrType<T1, T2, T3, T4> : IOrType<T1, T2, T3,T4>, IEquatable<OrType<T1, T2, T3, T4>>, IIsPossibly<T4>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -366,7 +334,7 @@ namespace Prototypist.Toolbox
         }
 
 
-        [Obsolete]
+        
         public IIsPossibly<T1> Possibly1()
         {
             if (isT1)
@@ -376,7 +344,7 @@ namespace Prototypist.Toolbox
             return Possibly.IsNot<T1>();
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T2> Possibly2()
         {
             if (isT2)
@@ -386,7 +354,7 @@ namespace Prototypist.Toolbox
             return Possibly.IsNot<T2>();
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T3> Possibly3()
         {
             if (isT3)
@@ -396,7 +364,7 @@ namespace Prototypist.Toolbox
             return Possibly.IsNot<T3>();
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T4> Possibly4()
         {
             if (isT4)
@@ -405,35 +373,6 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<T4>();
         }
-
-
-
-
-
-        public bool Is1(out T1 item)
-        {
-            item = t1;
-            return isT1;
-        }
-
-        public bool Is2(out T2 item)
-        {
-            item = t2;
-            return isT2;
-        }
-
-        public bool Is3(out T3 item)
-        {
-            item = t3;
-            return isT3;
-        }
-        
-        public bool Is4(out T4 item)
-        {
-            item = t4;
-            return isT4;
-        }
-
 
         public T1 Is1OrThrow()
         {
@@ -569,7 +508,7 @@ namespace Prototypist.Toolbox
         }
     }
 
-    public class OrType<T1, T2, T3, T4, T5> : _OrType4<T1, T2, T3, T4>, IOrType<T1, T2, T3, T4,T5>, IEquatable<OrType<T1, T2, T3, T4, T5>>, IIsPossibly<T5>
+    public class OrType<T1, T2, T3, T4, T5> : IOrType<T1, T2, T3, T4,T5>, IEquatable<OrType<T1, T2, T3, T4, T5>>, IIsPossibly<T5>
     {
         private readonly T1 t1;
         private readonly bool isT1;
@@ -614,7 +553,7 @@ namespace Prototypist.Toolbox
 
 
 
-        [Obsolete]
+        
         public IIsPossibly<T1> Possibly1()
         {
             if (isT1)
@@ -624,7 +563,7 @@ namespace Prototypist.Toolbox
             return Possibly.IsNot<T1>();
         }
 
-        [Obsolete]
+        
         public IIsPossibly<T2> Possibly2()
         {
             if (isT2)
@@ -633,7 +572,7 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<T2>();
         }
-        [Obsolete]
+        
         public IIsPossibly<T3> Possibly3()
         {
             if (isT3)
@@ -642,7 +581,7 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<T3>();
         }
-        [Obsolete]
+
         public IIsPossibly<T4> Possibly4()
         {
             if (isT4)
@@ -651,7 +590,7 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<T4>();
         }
-        [Obsolete]
+
         public IIsPossibly<T5> Possibly5()
         {
             if (isT5)
@@ -660,37 +599,6 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<T5>();
         }
-
-        public bool Is1(out T1 item)
-        {
-            item = t1;
-            return isT1;
-        }
-
-        public bool Is2(out T2 item)
-        {
-            item = t2;
-            return isT2;
-        }
-
-        public bool Is3(out T3 item)
-        {
-            item = t3;
-            return isT3;
-        }
-
-        public bool Is4(out T4 item)
-        {
-            item = t4;
-            return isT4;
-        }
-
-        public bool Is5(out T5 item)
-        {
-            item = t5;
-            return isT5;
-        }
-
 
         public T1 Is1OrThrow()
         {
