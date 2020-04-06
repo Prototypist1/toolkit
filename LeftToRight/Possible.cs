@@ -68,6 +68,14 @@ namespace Prototypist.Toolbox
             throw new Exception("bug! this should be a dichotomy!");
         }
 
+        public static void If<T, TT>(this IIsPossibly<T> self, Func<T, TT> func)
+        {
+            if (self is IIsDefinately<T> isYes)
+            {
+                func(isYes.Value);
+            }
+        }
+
         public static T GetOrThrow<T>(this IIsPossibly<T> self)
         {
             if (self is IIsDefinately<T> isYes)
