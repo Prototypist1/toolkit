@@ -765,193 +765,229 @@ namespace Prototypist.Toolbox
     public class OrType {
 
 
-        
-        private class y<T1> : IIsDefinately<T1> { public y(T1 value) { Value = value; } public T1 Value { get; }}
-        private class n<T1> : IIsDefinatelyNot<T1> { }
 
+        public class p<T1> :IIsPossibly<T1>{ }
+        public class p<T1,T2> : p<T1>,IIsPossibly<T2> { }
+        public class p<T1,T2,T3> : p<T1, T2>,IIsPossibly<T3> { }
+        public class p<T1,T2,T3,T4> : p<T1, T2, T3>, IIsPossibly<T4> { }
+        public class p<T1, T2, T3, T4,T5> : p<T1, T2, T3, T4>, IIsPossibly<T5> { }
 
-        private class ny<T1, T2> : n<T1>, IIsDefinately<T2> { public ny(T2 value) { Value = value; } public T2 Value { get; } }
-        private class nn<T1, T2> : n<T1>, IIsDefinatelyNot<T2> { }
-        private class yn<T1, T2> : y<T1>, IIsDefinatelyNot<T2>
+        public abstract class o<T1, T2> : p<T1, T2>, IOrType<T1, T2>
         {
-            public yn(T1 t1) : base(t1)
+            public bool Is<T>(out T res)
             {
+                if (this is IIsDefinately<T> definate) {
+                    res = definate.Value;
+                    return true;
+                }
+                res = default;
+                return false;
             }
-        }
 
-        private class oyn<T1, T2> : yn<T1, T2>, IOrType<T1, T2>
-        {
-            public oyn(T1 value) : base(value)
+            public T1 Is1OrThrow()
             {
+                if (this is IIsDefinately<T1> definate) {
+                    return definate.Value;
+                }
+                throw new Exception($"is not {typeof(T1)}");
             }
-        }
-        private class ony<T1, T2> : ny<T1, T2>, IOrType<T1, T2>
-        {
-            public ony(T2 value) : base(value)
-            {
-            }
-        }
 
-        private class nny<T1, T2, T3> : nn<T1, T2>, IIsDefinately<T3> { public nny(T3 value) { Value = value; } public T3 Value { get; } }
-        private class nnn<T1, T2,T3> : nn<T1,T2>, IIsDefinatelyNot<T3> { }
-        private class nyn<T1, T2, T3> : ny<T1, T2>, IIsDefinatelyNot<T3>
-        {
-            public nyn(T2 value) : base(value)
+            public T2 Is2OrThrow()
             {
+                if (this is IIsDefinately<T2> definate)
+                {
+                    return definate.Value;
+                }
+                throw new Exception($"is not {typeof(T2)}");
             }
-        }
-        private class ynn<T1, T2, T3> : yn<T1, T2>, IIsDefinatelyNot<T3>
-        {
-            public ynn(T1 t1) : base(t1)
-            {
-            }
-        }
 
+            public IIsPossibly<T1> Possibly1() => this;
+            public IIsPossibly<T2> Possibly2() => this;
 
-        private class oynn<T1, T2,T3> : ynn<T1, T2,T3>, IOrType<T1, T2,T3>
-        {
-            public oynn(T1 value) : base(value)
+            public void Switch(Action<T1> a1, Action<T2> a2)
             {
+                if (this is IIsDefinately<T1> definate1)
+                {
+                    a1(definate1.Value);
+                }
+                else if (this is IIsDefinately<T2> definate2)
+                {
+                    a2(definate2.Value);
+                }
+                else
+                {
+                    throw new Exception("bug!");
+                }
             }
-        }
-        private class onyn<T1, T2,T3> : nyn<T1, T2,T3>, IOrType<T1, T2,T3>
-        {
-            public onyn(T2 value) : base(value)
-            {
-            }
-        }
 
-        private class onny<T1, T2, T3> : nny<T1, T2, T3>, IOrType<T1, T2, T3>
-        {
-            public onny(T3 value) : base(value)
+            public T SwitchReturns<T>(Func<T1, T> f1, Func<T2, T> f2)
             {
+                if (this is IIsDefinately<T1> definate1)
+                {
+                    return f1(definate1.Value);
+                } 
+                if (this is IIsDefinately<T2> definate2)
+                {
+                    return f2(definate2.Value);
+                }
+                throw new Exception("bug!");
             }
         }
+        public abstract class o<T1, T2,T3> : p<T1, T2,T3>, IOrType<T1, T2, T3> { }
+        public abstract class o<T1, T2, T3,T4> : p<T1, T2, T3,T4>, IOrType<T1, T2, T3, T4> { }
+        public abstract class o<T1, T2, T3, T4,T5> : p<T1, T2, T3, T4,T5>, IOrType<T1, T2, T3, T4, T5> { }
 
-        private class nnny<T1, T2, T3, T4> : nnn<T1, T2, T3>, IIsDefinately<T4> { public nnny(T4 value) { Value = value; } public T4 Value { get; } }
-        private class nnnn<T1, T2, T3, T4> : nnn<T1, T2, T3>, IIsDefinatelyNot<T4> { }
-        private class nnyn<T1, T2, T3, T4> : nny<T1, T2, T3>, IIsDefinatelyNot<T4>
+        public class o1<T1, T2> : o<T1, T2>, IIsDefinately<T1>
         {
-            public nnyn(T3 value) : base(value)
+            public o1(T1 value)
             {
+                this.Value = value;
             }
-        }
-        private class nynn<T1, T2, T3, T4> : nyn<T1, T2, T3>, IIsDefinatelyNot<T4>
-        {
-            public nynn(T2 value) : base(value)
-            {
-            }
-        }
-        private class ynnn<T1, T2, T3, T4> : ynn<T1, T2, T3>, IIsDefinatelyNot<T4>
-        {
-            public ynnn(T1 t1) : base(t1)
-            {
-            }
-        }
 
-        private class oynnn<T1, T2, T3,T4> : ynnn<T1, T2, T3,T4>, IOrType<T1, T2, T3,T4>
-        {
-            public oynnn(T1 value) : base(value)
-            {
-            }
+            public T1 Value{ get; }
         }
-        private class onynn<T1, T2, T3,T4> : nynn<T1, T2, T3,T4>, IOrType<T1, T2, T3,T4>
+        public class o2<T1, T2> : o<T1, T2>, IIsDefinately<T2>
         {
-            public onynn(T2 value) : base(value)
+            public o2(T2 value)
             {
+                this.Value = value;
             }
+
+            public T2 Value { get; }
         }
 
-        private class onnyn<T1, T2, T3,T4> : nnyn<T1, T2, T3,T4>, IOrType<T1, T2, T3,T4>
+        public class o1<T1, T2, T3> : o<T1, T2, T3>, IIsDefinately<T1>
         {
-            public onnyn(T3 value) : base(value)
+            public o1(T1 value)
             {
+                this.Value = value;
             }
+
+            public T1 Value { get; }
         }
-        private class onnny<T1, T2, T3, T4> : nnny<T1, T2, T3, T4>, IOrType<T1, T2, T3, T4>
+        public class o2<T1, T2, T3> : o<T1, T2, T3>, IIsDefinately<T2>
         {
-            public onnny(T4 value) : base(value)
+            public o2(T2 value)
             {
+                this.Value = value;
             }
+
+            public T2 Value { get; }
+        }
+        public class o3<T1, T2, T3> : o<T1, T2, T3>, IIsDefinately<T3>
+        {
+            public o3(T3 value)
+            {
+                this.Value = value;
+            }
+
+            public T3 Value { get; }
         }
 
-        private class nnnny<T1, T2, T3, T4, T5> : nnnn<T1, T2, T3,T4>, IIsDefinately<T5> { public nnnny(T5 value) { Value = value; } public T5 Value { get; } }
-        private class nnnnn<T1, T2, T3, T4, T5> : nnnn<T1, T2, T3,T4>, IIsDefinatelyNot<T5> { }
-        private class nnnyn<T1, T2, T3, T4, T5> : nnny<T1, T2, T3, T4>, IIsDefinatelyNot<T5>
+
+        public class o1<T1, T2, T3, T4> : o<T1, T2, T3, T4>, IIsDefinately<T1>
         {
-            public nnnyn(T4 value) : base(value)
+            public o1(T1 value)
             {
+                this.Value = value;
             }
+
+            public T1 Value { get; }
         }
-        private class nnynn<T1, T2, T3, T4, T5> : nnyn<T1, T2, T3, T4>, IIsDefinatelyNot<T5>
+        public class o2<T1, T2, T3, T4> : o<T1, T2, T3, T4>, IIsDefinately<T2>
         {
-            public nnynn(T3 value) : base(value)
+            public o2(T2 value)
             {
+                this.Value = value;
             }
+
+            public T2 Value { get; }
         }
-        private class nynnn<T1, T2, T3, T4, T5> : nynn<T1, T2, T3, T4>, IIsDefinatelyNot<T5>
+        public class o3<T1, T2, T3, T4> : o<T1, T2, T3, T4>, IIsDefinately<T3>
         {
-            public nynnn(T2 value) : base(value)
+            public o3(T3 value)
             {
+                this.Value = value;
             }
+
+            public T3 Value { get; }
         }
-        private class ynnnn<T1, T2, T3, T4, T5> : ynnn<T1, T2, T3, T4>, IIsDefinatelyNot<T5>
+        public class o4<T1, T2, T3, T4> : o<T1, T2, T3, T4>, IIsDefinately<T4>
         {
-            public ynnnn(T1 t1) : base(t1)
+            public o4(T4 value)
             {
+                this.Value = value;
             }
+
+            public T4 Value { get; }
         }
 
-        private class oynnnn<T1, T2, T3, T4,T5> : ynnnn<T1, T2, T3, T4, T5>, IOrType<T1, T2, T3, T4, T5>
+
+        public class o1<T1, T2, T3, T4,T5> : o<T1, T2, T3, T4, T5>, IIsDefinately<T1>
         {
-            public oynnnn(T1 value) : base(value)
+            public o1(T1 value)
             {
+                this.Value = value;
             }
+
+            public T1 Value { get; }
         }
-        private class onynnn<T1, T2, T3, T4, T5> : nynnn<T1, T2, T3, T4, T5>, IOrType<T1, T2, T3, T4, T5>
+        public class o2<T1, T2, T3, T4, T5> : o<T1, T2, T3, T4, T5>, IIsDefinately<T2>
         {
-            public onynnn(T2 value) : base(value)
+            public o2(T2 value)
             {
+                this.Value = value;
             }
+
+            public T2 Value { get; }
         }
-        private class onnynn<T1, T2, T3, T4, T5> : nnynn<T1, T2, T3, T4, T5>, IOrType<T1, T2, T3, T4, T5>
+        public class o3<T1, T2, T3, T4, T5> : o<T1, T2, T3, T4, T5>, IIsDefinately<T3>
         {
-            public onnynn(T3 value) : base(value)
+            public o3(T3 value)
             {
+                this.Value = value;
             }
+
+            public T3 Value { get; }
         }
-        private class onnnyn<T1, T2, T3, T4, T5> : nnnyn<T1, T2, T3, T4, T5>, IOrType<T1, T2, T3, T4, T5>
+        public class o4<T1, T2, T3, T4, T5> : o<T1, T2, T3, T4, T5>, IIsDefinately<T4>
         {
-            public onnnyn(T4 value) : base(value)
+            public o4(T4 value)
             {
+                this.Value = value;
             }
+
+            public T4 Value { get; }
         }
-        private class onnnny<T1, T2, T3, T4, T5> : nnnny<T1, T2, T3, T4, T5>, IOrType<T1, T2, T3, T4, T5>
+        public class o5<T1, T2, T3, T4, T5> : o<T1, T2, T3, T4, T5>, IIsDefinately<T5>
         {
-            public onnnny(T5 value) : base(value)
+            public o5(T5 value)
             {
+                this.Value = value;
             }
+
+            public T5 Value { get; }
         }
 
-        public static IOrType<T1, T2> Make<T1, T2>(T1 value) => new oyn<T1,T2>(value);
-        public static IOrType<T1, T2> Make<T1, T2>(T2 value) => new ony<T1, T2>(value);
+        public static o1<T1, T2> Make<T1, T2>(T1 value) => new o1<T1,T2>(value);
+        public static o2<T1, T2> Make<T1, T2>(T2 value) => new o2<T1, T2>(value);
 
 
-        public static IOrType<T1, T2,T3> Make<T1, T2,T3>(T1 value) => new oynn<T1, T2,T3>(value);
-        public static IOrType<T1, T2,T3> Make<T1, T2,T3>(T2 value) => new onyn<T1, T2,T3>(value);
-        public static IOrType<T1, T2, T3> Make<T1, T2, T3>(T3 value) => new onny<T1, T2, T3>(value);
+        public static o1<T1, T2,T3> Make<T1, T2,T3>(T1 value) => new o1<T1, T2,T3>(value);
+        public static o2<T1, T2,T3> Make<T1, T2,T3>(T2 value) => new o2<T1, T2,T3>(value);
+        public static o3<T1, T2, T3> Make<T1, T2, T3>(T3 value) => new o3<T1, T2, T3>(value);
 
 
-        public static IOrType<T1, T2, T3,T4> Make<T1, T2, T3, T4>(T1 value) => new oynnn<T1, T2, T3, T4>(value);
-        public static IOrType<T1, T2, T3, T4> Make<T1, T2, T3, T4>(T2 value) => new onynn<T1, T2, T3, T4>(value);
-        public static IOrType<T1, T2, T3, T4> Make<T1, T2, T3, T4>(T3 value) => new onnyn<T1, T2, T3, T4>(value);
-        public static IOrType<T1, T2, T3, T4> Make<T1, T2, T3, T4>(T4 value) => new onnny<T1, T2, T3, T4>(value);
+        public static o1<T1, T2, T3,T4> Make<T1, T2, T3, T4>(T1 value) => new o1<T1, T2, T3, T4>(value);
+        public static o2<T1, T2, T3, T4> Make<T1, T2, T3, T4>(T2 value) => new o2<T1, T2, T3, T4>(value);
+        public static o3<T1, T2, T3, T4> Make<T1, T2, T3, T4>(T3 value) => new o3<T1, T2, T3, T4>(value);
+        public static o4<T1, T2, T3, T4> Make<T1, T2, T3, T4>(T4 value) => new o4<T1, T2, T3, T4>(value);
 
-        public static IOrType<T1, T2, T3, T4,T5> Make<T1, T2, T3, T4, T5>(T1 value) => new oynnnn<T1, T2, T3, T4, T5>(value);
-        public static IOrType<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T2 value) => new onynnn<T1, T2, T3, T4, T5>(value);
-        public static IOrType<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T3 value) => new onnynn<T1, T2, T3, T4, T5>(value);
-        public static IOrType<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T4 value) => new onnnyn<T1, T2, T3, T4, T5>(value);
-        public static IOrType<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T5 value) => new onnnny<T1, T2, T3, T4, T5>(value);
+        public static o1<T1, T2, T3, T4,T5> Make<T1, T2, T3, T4, T5>(T1 value) => new o1<T1, T2, T3, T4, T5>(value);
+        public static o2<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T2 value) => new o2<T1, T2, T3, T4, T5>(value);
+        public static o3<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T3 value) => new o3<T1, T2, T3, T4, T5>(value);
+        public static o4<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T4 value) => new o4<T1, T2, T3, T4, T5>(value);
+        public static o5<T1, T2, T3, T4, T5> Make<T1, T2, T3, T4, T5>(T5 value) => new o5<T1, T2, T3, T4, T5>(value);
     }
     
 }
