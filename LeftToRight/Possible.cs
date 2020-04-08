@@ -15,6 +15,8 @@ namespace Prototypist.Toolbox
             }
 
             public T Value { get; }
+
+            public object Representative() => Value;
         }
 
         private class PrivateIsNot<T>: IIsPossibly<T>
@@ -84,7 +86,7 @@ namespace Prototypist.Toolbox
 
     }
 
-    public interface IIsDefinately<out T> : IIsPossibly<T>
+    public interface IIsDefinately<out T> : IIsPossibly<T>, IAmRepresented
     {
         T Value { get; }
     }

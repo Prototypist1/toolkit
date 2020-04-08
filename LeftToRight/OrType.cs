@@ -1,16 +1,40 @@
-﻿using System;
+﻿using Prototypist.Toolbox.Object;
+using System;
 using System.Collections.Generic;
 
 namespace Prototypist.Toolbox
 {
-    public class p<T1> : IIsPossibly<T1> { }
-    public class p<T1, T2> : p<T1>, IIsPossibly<T2> { }
-    public class p<T1, T2, T3> : p<T1, T2>, IIsPossibly<T3> { }
-    public class p<T1, T2, T3, T4> : p<T1, T2, T3>, IIsPossibly<T4> { }
-    public class p<T1, T2, T3, T4, T5> : p<T1, T2, T3, T4>, IIsPossibly<T5> { }
+    public abstract class p<T1> : IIsPossibly<T1>, IAmRepresented {
 
+        public override int GetHashCode()
+        {
+            return Representative()?.GetHashCode() ?? 0;
+        }
+
+
+        public override string ToString()
+        {
+            return Representative()?.ToString();
+        }
+
+        public abstract object Representative();
+    }
+    public abstract class p<T1, T2> : p<T1>, IIsPossibly<T2> { }
+    public abstract class p<T1, T2, T3> : p<T1, T2>, IIsPossibly<T3> { }
+    public abstract class p<T1, T2, T3, T4> : p<T1, T2, T3>, IIsPossibly<T4> { }
+    public abstract class p<T1, T2, T3, T4, T5> : p<T1, T2, T3, T4>, IIsPossibly<T5> { }
+
+
+    public interface IAmRepresented {
+        object Representative();
+    }
+
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public abstract class OrType<T1, T2> : p<T1, T2>, IOrType<T1, T2>
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
+
+
         public bool Is<T>(out T res)
         {
             if (this is IIsDefinately<T> definate)
@@ -71,8 +95,19 @@ namespace Prototypist.Toolbox
             }
             throw new Exception("bug!");
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is OrType<T1, T2> other)
+            {
+                return other.Representative().NullSafeEqual(Representative());
+            }
+            return false;
+        }
     }
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public abstract class OrType<T1, T2, T3> : p<T1, T2, T3>, IOrType<T1, T2, T3>
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
 
 
@@ -153,8 +188,19 @@ namespace Prototypist.Toolbox
             }
             throw new Exception("bug!");
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is OrType<T1, T2,T3> other)
+            {
+                return other.Representative().NullSafeEqual(Representative());
+            }
+            return false;
+        }
     }
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public abstract class OrType<T1, T2, T3, T4> : p<T1, T2, T3, T4>, IOrType<T1, T2, T3, T4>
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
         public bool Is<T>(out T res)
         {
@@ -250,8 +296,21 @@ namespace Prototypist.Toolbox
             }
             throw new Exception("bug!");
         }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is OrType<T1, T2, T3,T4> other)
+            {
+                return other.Representative().NullSafeEqual(Representative());
+            }
+            return false;
+        }
+
     }
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public abstract class OrType<T1, T2, T3, T4, T5> : p<T1, T2, T3, T4, T5>, IOrType<T1, T2, T3, T4, T5>
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
         public bool Is<T>(out T res)
         {
@@ -364,6 +423,16 @@ namespace Prototypist.Toolbox
             }
             throw new Exception("bug!");
         }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is OrType<T1, T2, T3, T4,T5> other)
+            {
+                return other.Representative().NullSafeEqual(Representative());
+            }
+            return false;
+        }
     }
 
     public class OrType_1<T1, T2> : OrType<T1, T2>, IIsDefinately<T1>
@@ -374,6 +443,8 @@ namespace Prototypist.Toolbox
         }
 
         public T1 Value { get; }
+
+        public override object Representative() => Value;
     }
     public class OrType_2<T1, T2> : OrType<T1, T2>, IIsDefinately<T2>
     {
@@ -383,6 +454,7 @@ namespace Prototypist.Toolbox
         }
 
         public T2 Value { get; }
+        public override object Representative() => Value;
     }
 
     public class OrType_1<T1, T2, T3> : OrType<T1, T2, T3>, IIsDefinately<T1>
@@ -393,6 +465,7 @@ namespace Prototypist.Toolbox
         }
 
         public T1 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_2<T1, T2, T3> : OrType<T1, T2, T3>, IIsDefinately<T2>
     {
@@ -402,6 +475,7 @@ namespace Prototypist.Toolbox
         }
 
         public T2 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_3<T1, T2, T3> : OrType<T1, T2, T3>, IIsDefinately<T3>
     {
@@ -411,6 +485,7 @@ namespace Prototypist.Toolbox
         }
 
         public T3 Value { get; }
+        public override object Representative() => Value;
     }
 
     public class OrType_1<T1, T2, T3, T4> : OrType<T1, T2, T3, T4>, IIsDefinately<T1>
@@ -421,6 +496,7 @@ namespace Prototypist.Toolbox
         }
 
         public T1 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_2<T1, T2, T3, T4> : OrType<T1, T2, T3, T4>, IIsDefinately<T2>
     {
@@ -430,6 +506,7 @@ namespace Prototypist.Toolbox
         }
 
         public T2 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_3<T1, T2, T3, T4> : OrType<T1, T2, T3, T4>, IIsDefinately<T3>
     {
@@ -439,6 +516,7 @@ namespace Prototypist.Toolbox
         }
 
         public T3 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_4<T1, T2, T3, T4> : OrType<T1, T2, T3, T4>, IIsDefinately<T4>
     {
@@ -448,6 +526,7 @@ namespace Prototypist.Toolbox
         }
 
         public T4 Value { get; }
+        public override object Representative() => Value;
     }
 
     public class OrType_1<T1, T2, T3, T4, T5> : OrType<T1, T2, T3, T4, T5>, IIsDefinately<T1>
@@ -458,6 +537,7 @@ namespace Prototypist.Toolbox
         }
 
         public T1 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_2<T1, T2, T3, T4, T5> : OrType<T1, T2, T3, T4, T5>, IIsDefinately<T2>
     {
@@ -467,6 +547,7 @@ namespace Prototypist.Toolbox
         }
 
         public T2 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_3<T1, T2, T3, T4, T5> : OrType<T1, T2, T3, T4, T5>, IIsDefinately<T3>
     {
@@ -476,6 +557,7 @@ namespace Prototypist.Toolbox
         }
 
         public T3 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_4<T1, T2, T3, T4, T5> : OrType<T1, T2, T3, T4, T5>, IIsDefinately<T4>
     {
@@ -485,6 +567,7 @@ namespace Prototypist.Toolbox
         }
 
         public T4 Value { get; }
+        public override object Representative() => Value;
     }
     public class OrType_5<T1, T2, T3, T4, T5> : OrType<T1, T2, T3, T4, T5>, IIsDefinately<T5>
     {
@@ -494,6 +577,7 @@ namespace Prototypist.Toolbox
         }
 
         public T5 Value { get; }
+        public override object Representative() => Value;
     }
 
 

@@ -6,18 +6,18 @@
     <RootNamespace>Prototypist.Toolbox</RootNamespace>
     <LangVersion>7.1</LangVersion>
     <Product></Product>
-    <Description>A set of extensions that facilitate a style of programming like that of Linq where data flows through a set of modifying methods. </Description>
+    <Description>code I like to always have at hand</Description>
     <PackageId>Prototypist.Toolbox</PackageId>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Version>1.0.0.14</Version>
+    <Version>1.0.0.15</Version>
     <PackageProjectUrl>https://github.com/Prototypist1/LeftToRight</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Company></Company>
     <Authors>@Prototypist1</Authors>
-    <AssemblyVersion>1.0.0.14</AssemblyVersion>
+    <AssemblyVersion>1.0.0.15</AssemblyVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <FileVersion>1.0.0.14</FileVersion>
+    <FileVersion>1.0.0.15</FileVersion>
   </PropertyGroup>
 
 </Project>

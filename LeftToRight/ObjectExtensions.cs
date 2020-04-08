@@ -30,7 +30,7 @@ namespace Prototypist.Toolbox.Object
             return o is TT;
         }
 
-        public static bool NullSafeEqual<T>(this object o, object other)
+        public static bool NullSafeEqual(this object o, object other)
         {
             if (o is null) {
                 return other is null;
