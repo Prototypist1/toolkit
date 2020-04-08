@@ -17,13 +17,13 @@ namespace Prototypist.Toolbox.Object
             return (TT)o;
         }
 
-        public static bool Is<T, TT>(this T o)
+        public static bool SafeIs<T, TT>(this T o)
             where TT : T
         {
             return o is TT;
         }
         
-        public static bool Is<T,TT>(this T o, out TT res)
+        public static bool SafeIs<T,TT>(this T o, out TT res)
             where TT:T
         {
             res = o is TT t ? t : default;
