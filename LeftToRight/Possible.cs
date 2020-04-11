@@ -45,19 +45,6 @@ namespace Prototypist.Toolbox
     public static class IsPossiblyExtenstions
     {
 
-        //public static bool IsDefinately<T>(this IIsPossibly<T> self, out IIsDefinately<T> yes, out IIsDefinatelyNot<T> no)
-        //{
-        //    if (self is IIsDefinately<T> isYes)
-        //    {
-        //        yes = isYes;
-        //        no = default;
-        //        return true;
-        //    }
-        //    no = isNo;
-        //    yes = default;
-        //    return false;
-        //}
-
         public static IIsPossibly<TT> IfIs<T, TT>(this IIsPossibly<T> self, Func<T, IIsPossibly<TT>> func)
         {
             if (self is IIsDefinately<T> isYes)
@@ -65,6 +52,29 @@ namespace Prototypist.Toolbox
                 return func(isYes.Value);
             }
             return Possibly.IsNot<TT>();
+        }
+
+        public static void IfElse<T>(this IIsPossibly<T> self, Action<T> ifIs, Action ifNot)
+        {
+            if (self is IIsDefinately<T> isYes)
+            {
+                ifIs(isYes.Value);
+            }
+            else {
+                ifNot();
+            }
+        }
+
+        public static TT IfElseReturn<T, TT>(this IIsPossibly<T> self, Func<T,TT> ifIs, Func<TT> ifNot)
+        {
+            if (self is IIsDefinately<T> isYes)
+            {
+                return ifIs(isYes.Value);
+            }
+            else
+            {
+                return ifNot();
+            }
         }
 
         public static void If<T, TT>(this IIsPossibly<T> self, Func<T, TT> func)
