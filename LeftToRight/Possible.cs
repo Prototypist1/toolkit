@@ -45,7 +45,7 @@ namespace Prototypist.Toolbox
     public static class IsPossiblyExtenstions
     {
 
-        public static IEnumerable<T> AsEnummerable<T>(this IIsPossibly<T> self) {
+        public static IEnumerable<T> AsEnumerable<T>(this IIsPossibly<T> self) {
             if (self is IIsDefinately<T> definate) {
                 yield return definate.Value;
             }
