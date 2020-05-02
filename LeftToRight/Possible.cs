@@ -108,6 +108,30 @@ namespace Prototypist.Toolbox
             throw new Exception();
         }
 
+        public static bool Is<T>(this IIsPossibly<T> self, out T t) {
+            if (self is IIsDefinately<T> isYes)
+            {
+                t = isYes.Value;
+                return true;
+            }
+            else
+            {
+                t = default;
+                return false;
+            }
+        }
+
+        public static bool IsNot<T>(this IIsPossibly<T> self)
+        {
+            if (self is IIsDefinately<T>)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 
     public interface IIsDefinately<out T> : IIsPossibly<T>, IAmRepresented
