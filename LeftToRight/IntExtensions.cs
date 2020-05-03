@@ -5,8 +5,11 @@ namespace Prototypist.Toolbox.Int
 {
     public static class IntExtensions
     {
-        public static void For(this int reps, Action<int> action) {
-            if (reps < 0) {
+        // yuck
+        public static void For(this int reps, Action<int> action)
+        {
+            if (reps < 0)
+            {
                 throw new ArgumentOutOfRangeException(nameof(reps));
             }
 

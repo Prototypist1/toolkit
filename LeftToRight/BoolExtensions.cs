@@ -23,6 +23,8 @@ namespace Prototypist.Toolbox.Bool
             return self;
         }
 
+        // really the syntax i want is:
+        // if (not x) {}
         public static bool Not(this bool self) {
             return !self;
         }
