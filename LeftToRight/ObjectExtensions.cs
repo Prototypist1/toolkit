@@ -10,6 +10,14 @@ namespace Prototypist.Toolbox.Object
 
     public static class ObjectExtensions
     {
+
+        // this is just easier to infer
+        public static TT SafeCastTo<T, TT>(this T o, out TT tt)
+            where TT : T
+        {
+            tt = (TT)o;
+            return tt;
+        }
         public static TT SafeCastTo<T,TT>(this T o)
             where TT:T
         {
