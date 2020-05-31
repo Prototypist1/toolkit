@@ -51,7 +51,7 @@ namespace Prototypist.Toolbox
             }
         }
 
-        public static IIsPossibly<TT> IfIs<T, TT>(this IIsPossibly<T> self, Func<T, IIsPossibly<TT>> func)
+        public static IIsPossibly<TT> IfIsReturns<T, TT>(this IIsPossibly<T> self, Func<T, IIsPossibly<TT>> func)
         {
             if (self is IIsDefinately<T> isYes)
             {
@@ -59,6 +59,16 @@ namespace Prototypist.Toolbox
             }
             return Possibly.IsNot<TT>();
         }
+
+
+        public static void IfIs<T>(this IIsPossibly<T> self, Action<T> action)
+        {
+            if (self is IIsDefinately<T> isYes)
+            {
+                action(isYes.Value);
+            }
+        }
+
 
         public static void IfElse<T>(this IIsPossibly<T> self, Action<T> ifIs, Action ifNot)
         {
@@ -91,7 +101,7 @@ namespace Prototypist.Toolbox
             }
         }
 
-        public static void If<T, TT>(this IIsPossibly<T> self, Action<T> action)
+        public static void If<T>(this IIsPossibly<T> self, Action<T> action)
         {
             if (self is IIsDefinately<T> isYes)
             {

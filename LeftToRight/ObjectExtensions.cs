@@ -18,6 +18,7 @@ namespace Prototypist.Toolbox.Object
             tt = (TT)o;
             return tt;
         }
+
         public static TT SafeCastTo<T,TT>(this T o)
             where TT:T
         {
