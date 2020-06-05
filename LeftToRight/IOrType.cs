@@ -102,6 +102,25 @@ namespace Prototypist.Toolbox
     public static class OrTypeExtensions
     {
 
+        public static T GetValueAs<T1, T2, T>(this IOrType<T1, T2> self)
+            where T1: T
+            where T2: T
+        {
+            if (self.Is<T>(out var res)) {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T IsOrThrow<T1,T2,T>(this IOrType<T1, T2> self)
+        {
+            if (self.Is<T>(out var v))
+            {
+                return v;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
         public static bool Is1<T1, T2>(this IOrType<T1, T2> self, out T1 t1)
         {
             if (self.Possibly1() is IIsDefinately<T1> definate)
@@ -123,6 +142,28 @@ namespace Prototypist.Toolbox
             t2 = default;
             return false;
         }
+
+        public static T GetValueAs<T1, T2, T3, T>(this IOrType<T1, T2, T3> self)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T IsOrThrow<T1, T2, T3, T>(this IOrType<T1, T2, T3> self)
+        {
+            if (self.Is<T>(out var v))
+            {
+                return v;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
 
         public static bool Is1<T1, T2, T3>(this IOrType<T1, T2, T3> self, out T1 t1)
         {
@@ -154,6 +195,28 @@ namespace Prototypist.Toolbox
             }
             t3 = default;
             return false;
+        }
+
+        public static T GetValueAs<T1, T2, T3, T4, T>(this IOrType<T1, T2, T3, T4> self)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+            where T4 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T IsOrThrow<T1, T2, T3, T4, T>(this IOrType<T1, T2, T3, T4> self)
+        {
+            if (self.Is<T>(out var v))
+            {
+                return v;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
         }
 
         public static bool Is1<T1, T2, T3, T4>(this IOrType<T1, T2, T3, T4> self, out T1 t1)
@@ -197,6 +260,31 @@ namespace Prototypist.Toolbox
             t4 = default;
             return false;
         }
+
+        public static T GetValueAs<T1, T2, T3, T4, T5, T>(this IOrType<T1, T2, T3, T4, T5> self)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+            where T4 : T
+            where T5 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T IsOrThrow<T1, T2, T3, T4, T5, T>(this IOrType<T1, T2, T3, T4, T5> self)
+        {
+            if (self.Is<T>(out var v))
+            {
+                return v;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+
         public static bool Is1<T1, T2, T3, T4, T5>(this IOrType<T1, T2, T3, T4, T5> self, out T1 t1)
         {
             if (self.Possibly1() is IIsDefinately<T1> definate)
@@ -246,6 +334,31 @@ namespace Prototypist.Toolbox
             }
             t5 = default;
             return false;
+        }
+
+
+        public static T GetValueAs<T1, T2, T3, T4, T5, T6, T>(this IOrType<T1, T2, T3, T4, T5, T6> self)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+            where T4 : T
+            where T5 : T
+            where T6 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T IsOrThrow<T1, T2, T3, T4, T5, T6, T>(this IOrType<T1, T2, T3, T4, T5, T6> self)
+        {
+            if (self.Is<T>(out var v))
+            {
+                return v;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
         }
 
         public static bool Is1<T1, T2, T3, T4, T5, T6>(this IOrType<T1, T2, T3, T4, T5, T6> self, out T1 t1)
@@ -310,7 +423,30 @@ namespace Prototypist.Toolbox
             return false;
         }
 
+        public static T GetValueAs<T1, T2, T3, T4, T5, T6, T7, T>(this IOrType<T1, T2, T3, T4, T5, T6, T7> self)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+            where T4 : T
+            where T5 : T
+            where T6 : T
+            where T7 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
 
+        public static T IsOrThrow<T1, T2, T3, T4, T5, T6, T7, T>(this IOrType<T1, T2, T3, T4, T5, T6, T7> self)
+        {
+            if (self.Is<T>(out var v))
+            {
+                return v;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
         public static bool Is1<T1, T2, T3, T4, T5, T6, T7>(this IOrType<T1, T2, T3, T4, T5, T6, T7> self, out T1 t1)
         {
             if (self.Possibly1() is IIsDefinately<T1> definate)

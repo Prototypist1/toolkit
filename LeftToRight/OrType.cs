@@ -35,8 +35,6 @@ namespace Prototypist.Toolbox
     public abstract class OrType<T1, T2> : p<T1, T2>, IOrType<T1, T2>
 #pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
-
-
         public bool Is<T>(out T res)
         {
             if (this is IIsDefinately<T> definate)
@@ -744,7 +742,7 @@ namespace Prototypist.Toolbox
             this.Value = value;
         }
 
-        public T1 Value { get; }
+        public new T1 Value { get; }
 
         public override object Representative() => Value;
     }
