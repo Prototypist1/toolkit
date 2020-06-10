@@ -8,6 +8,11 @@ namespace Prototypist.Toolbox.IEnumerable
 
     public static class IEnumerableExtensions
     {
+        public static IEnumerable<T> PossilyOrTYpe<T>(this IEnumerable<IIsPossibly<T>> self)
+        {
+            return self.Where(x => x.Is(out var _)).Select(x => x.GetOrThrow());
+        }
+
         public static T LargestOrThrow<T>(this IEnumerable<T> self, Func<T, double> measure) {
             if (self == null)
             {

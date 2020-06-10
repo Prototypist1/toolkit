@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Prototypist.Toolbox
 {
@@ -102,12 +104,26 @@ namespace Prototypist.Toolbox
     public static class OrTypeExtensions
     {
 
+
+
         public static T GetValueAs<T1, T2, T>(this IOrType<T1, T2> self)
             where T1: T
             where T2: T
         {
             if (self.Is<T>(out var res)) {
                 return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T GetValueAs<T1, T2, T>(this IOrType<T1, T2> self, out T t)
+            where T1 : T
+            where T2 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                t = res;
+                return t;
             }
             throw new Exception($"{self}'s value is not a {typeof(T).Name}");
         }
@@ -150,6 +166,20 @@ namespace Prototypist.Toolbox
         {
             if (self.Is<T>(out var res))
             {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+
+        public static T GetValueAs<T1, T2, T3, T>(this IOrType<T1, T2, T3> self, out T t)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                t = res;
                 return res;
             }
             throw new Exception($"{self}'s value is not a {typeof(T).Name}");
@@ -205,6 +235,20 @@ namespace Prototypist.Toolbox
         {
             if (self.Is<T>(out var res))
             {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T GetValueAs<T1, T2, T3, T4, T>(this IOrType<T1, T2, T3, T4> self, out T t)
+            where T1 : T
+            where T2 : T
+            where T3 : T
+            where T4 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                t = res;
                 return res;
             }
             throw new Exception($"{self}'s value is not a {typeof(T).Name}");
@@ -270,6 +314,21 @@ namespace Prototypist.Toolbox
         {
             if (self.Is<T>(out var res))
             {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T GetValueAs<T1, T2, T3, T4, T5, T>(this IOrType<T1, T2, T3, T4, T5> self, out T t)
+    where T1 : T
+    where T2 : T
+    where T3 : T
+    where T4 : T
+    where T5 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                t = res;
                 return res;
             }
             throw new Exception($"{self}'s value is not a {typeof(T).Name}");
@@ -347,6 +406,22 @@ namespace Prototypist.Toolbox
         {
             if (self.Is<T>(out var res))
             {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T GetValueAs<T1, T2, T3, T4, T5, T6, T>(this IOrType<T1, T2, T3, T4, T5, T6> self, out T t )
+    where T1 : T
+    where T2 : T
+    where T3 : T
+    where T4 : T
+    where T5 : T
+    where T6 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                t = res;
                 return res;
             }
             throw new Exception($"{self}'s value is not a {typeof(T).Name}");
@@ -434,6 +509,23 @@ namespace Prototypist.Toolbox
         {
             if (self.Is<T>(out var res))
             {
+                return res;
+            }
+            throw new Exception($"{self}'s value is not a {typeof(T).Name}");
+        }
+
+        public static T GetValueAs<T1, T2, T3, T4, T5, T6, T7, T>(this IOrType<T1, T2, T3, T4, T5, T6, T7> self, out T t)
+    where T1 : T
+    where T2 : T
+    where T3 : T
+    where T4 : T
+    where T5 : T
+    where T6 : T
+    where T7 : T
+        {
+            if (self.Is<T>(out var res))
+            {
+                t = res;
                 return res;
             }
             throw new Exception($"{self}'s value is not a {typeof(T).Name}");

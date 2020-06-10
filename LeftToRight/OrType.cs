@@ -37,9 +37,9 @@ namespace Prototypist.Toolbox
     {
         public bool Is<T>(out T res)
         {
-            if (this is IIsDefinately<T> definate)
+            if (Representative() is T t)
             {
-                res = definate.Value;
+                res = t;
                 return true;
             }
             res = default;
@@ -113,9 +113,9 @@ namespace Prototypist.Toolbox
 
         public bool Is<T>(out T res)
         {
-            if (this is IIsDefinately<T> definate)
+            if (Representative() is T t)
             {
-                res = definate.Value;
+                res = t;
                 return true;
             }
             res = default;
@@ -204,9 +204,9 @@ namespace Prototypist.Toolbox
     {
         public bool Is<T>(out T res)
         {
-            if (this is IIsDefinately<T> definate)
+            if (Representative() is T t)
             {
-                res = definate.Value;
+                res = t;
                 return true;
             }
             res = default;
@@ -314,9 +314,8 @@ namespace Prototypist.Toolbox
     {
         public bool Is<T>(out T res)
         {
-            if (this is IIsDefinately<T> definate)
-            {
-                res = definate.Value;
+            if (Representative() is T t) {
+                res = t;
                 return true;
             }
             res = default;
@@ -441,9 +440,9 @@ namespace Prototypist.Toolbox
     {
         public bool Is<T>(out T res)
         {
-            if (this is IIsDefinately<T> definate)
+            if (Representative() is T t)
             {
-                res = definate.Value;
+                res = t;
                 return true;
             }
             res = default;
@@ -583,9 +582,9 @@ namespace Prototypist.Toolbox
     {
         public bool Is<T>(out T res)
         {
-            if (this is IIsDefinately<T> definate)
+            if (Representative() is T t)
             {
-                res = definate.Value;
+                res = t;
                 return true;
             }
             res = default;
