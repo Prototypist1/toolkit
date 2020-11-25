@@ -10,14 +10,14 @@
     <PackageId>Prototypist.Toolbox</PackageId>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Version>1.0.0.23</Version>
+    <Version>1.0.0.25</Version>
     <PackageProjectUrl>https://github.com/Prototypist1/LeftToRight</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Company></Company>
     <Authors>@Prototypist1</Authors>
-    <AssemblyVersion>1.0.0.23</AssemblyVersion>
+    <AssemblyVersion>1.0.0.25</AssemblyVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <FileVersion>1.0.0.22</FileVersion>
+    <FileVersion>1.0.0.25</FileVersion>
   </PropertyGroup>
 
 </Project>

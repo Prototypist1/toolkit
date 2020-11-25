@@ -16,11 +16,31 @@ namespace Prototypist.Toolbox
 
             public T Value { get; }
 
+            public override bool Equals(object obj)
+            {
+                return obj is PrivateIs<T> @is && 
+                       (@is.Value?.Equals(Value) ?? Value == null);
+            }
+
+            public override int GetHashCode()
+            {
+                return Value?.GetHashCode() ?? 0;
+            }
+
             public object Representative() => Value;
         }
 
         private class PrivateIsNot<T>: IIsPossibly<T>
         {
+            public override bool Equals(object obj)
+            {
+                return obj is PrivateIsNot<T>;
+            }
+
+            public override int GetHashCode()
+            {
+                return 923949347;
+            }
         }
 
         public static IIsDefinately<T> Is<T>(T t)
@@ -56,6 +76,15 @@ namespace Prototypist.Toolbox
             if (self is IIsDefinately<T> isYes)
             {
                 return func(isYes.Value);
+            }
+            return Possibly.IsNot<TT>();
+        }
+
+        public static IIsPossibly<TT> TransformInner<T, TT>(this IIsPossibly<T> self, Func<T, TT> func)
+        {
+            if (self is IIsDefinately<T> isYes)
+            {
+                return Possibly.Is<TT>( func(isYes.Value));
             }
             return Possibly.IsNot<TT>();
         }
