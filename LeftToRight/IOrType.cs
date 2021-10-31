@@ -718,7 +718,7 @@ namespace Prototypist.Toolbox
             t4 = default;
             return false;
         }
-        public static bool Is5<T1, T2, T3, T4, T5, T6, T7, T8>(this IOrType<T1, T2, T3, T4, T5, T6, T7> self, out T5 t5)
+        public static bool Is5<T1, T2, T3, T4, T5, T6, T7, T8>(this IOrType<T1, T2, T3, T4, T5, T6, T7, T8> self, out T5 t5)
         {
             if (self.Possibly5() is IIsDefinately<T5> definate)
             {

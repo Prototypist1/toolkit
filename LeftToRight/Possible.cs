@@ -28,6 +28,11 @@ namespace Prototypist.Toolbox
             }
 
             public object Representative() => Value;
+
+            public override string ToString()
+            {
+                return $"is {typeof(T).Name}: {Value}";
+            }
         }
 
         private class PrivateIsNot<T>: IIsPossibly<T>
@@ -41,6 +46,12 @@ namespace Prototypist.Toolbox
             {
                 return 923949347;
             }
+
+            public override string ToString()
+            {
+                return $"is not {typeof(T).Name}";
+            }
+
         }
 
         public static IIsDefinately<T> Is<T>(T t)

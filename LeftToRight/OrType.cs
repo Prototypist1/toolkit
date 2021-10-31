@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 namespace Prototypist.Toolbox
 {
+    // something something Source generator...
+
     public abstract class p<T1> : IIsPossibly<T1>, IAmRepresented {
 
         public override int GetHashCode()
@@ -26,7 +28,6 @@ namespace Prototypist.Toolbox
     public abstract class p<T1, T2, T3, T4, T5, T6> : p<T1, T2, T3, T4, T5>, IIsPossibly<T6> { }
     public abstract class p<T1, T2, T3, T4, T5, T6,T7> : p<T1, T2, T3, T4, T5,T6>, IIsPossibly<T7> { }
     public abstract class p<T1, T2, T3, T4, T5, T6, T7,T8> : p<T1, T2, T3, T4, T5, T6,T7>, IIsPossibly<T8> { }
-
 
     public interface IAmRepresented {
         object Representative();
@@ -105,6 +106,9 @@ namespace Prototypist.Toolbox
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2>(T1 t1) => OrType.Make<T1,T2>(t1);
+        public static implicit operator OrType<T1, T2>(T2 t2) => OrType.Make<T1, T2>(t2);
     }
 #pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public abstract class OrType<T1, T2, T3> : p<T1, T2, T3>, IOrType<T1, T2, T3>
@@ -198,6 +202,10 @@ namespace Prototypist.Toolbox
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2, T3>(T1 t1) => OrType.Make<T1, T2, T3>(t1);
+        public static implicit operator OrType<T1, T2, T3>(T2 t2) => OrType.Make<T1, T2, T3>(t2);
+        public static implicit operator OrType<T1, T2, T3>(T3 t3) => OrType.Make<T1, T2, T3>(t3);
     }
 #pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public abstract class OrType<T1, T2, T3, T4> : p<T1, T2, T3, T4>, IOrType<T1, T2, T3, T4>
@@ -307,6 +315,11 @@ namespace Prototypist.Toolbox
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2, T3, T4>(T1 t1) => OrType.Make<T1, T2, T3, T4>(t1);
+        public static implicit operator OrType<T1, T2, T3, T4>(T2 t2) => OrType.Make<T1, T2, T3, T4>(t2);
+        public static implicit operator OrType<T1, T2, T3, T4>(T3 t3) => OrType.Make<T1, T2, T3, T4>(t3);
+        public static implicit operator OrType<T1, T2, T3, T4>(T4 t4) => OrType.Make<T1, T2, T3, T4>(t4);
 
     }
 #pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
@@ -433,6 +446,13 @@ namespace Prototypist.Toolbox
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2, T3, T4, T5>(T1 t1) => OrType.Make<T1, T2, T3, T4, T5>(t1);
+        public static implicit operator OrType<T1, T2, T3, T4, T5>(T2 t2) => OrType.Make<T1, T2, T3, T4, T5>(t2);
+        public static implicit operator OrType<T1, T2, T3, T4, T5>(T3 t3) => OrType.Make<T1, T2, T3, T4, T5>(t3);
+        public static implicit operator OrType<T1, T2, T3, T4, T5>(T4 t4) => OrType.Make<T1, T2, T3, T4, T5>(t4);
+        public static implicit operator OrType<T1, T2, T3, T4, T5>(T5 t5) => OrType.Make<T1, T2, T3, T4, T5>(t5);
+
     }
 
 #pragma warning disable CS0659 //
@@ -575,6 +595,14 @@ namespace Prototypist.Toolbox
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6>(T1 t1) => OrType.Make<T1, T2, T3, T4, T5, T6>(t1);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6>(T2 t2) => OrType.Make<T1, T2, T3, T4, T5, T6>(t2);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6>(T3 t3) => OrType.Make<T1, T2, T3, T4, T5, T6>(t3);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6>(T4 t4) => OrType.Make<T1, T2, T3, T4, T5, T6>(t4);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6>(T5 t5) => OrType.Make<T1, T2, T3, T4, T5, T6>(t5);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6>(T6 t6) => OrType.Make<T1, T2, T3, T4, T5, T6>(t6);
+
     }
 
 #pragma warning disable CS0659 //
@@ -733,6 +761,14 @@ namespace Prototypist.Toolbox
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T1 t1) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t1);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T2 t2) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t2);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T3 t3) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t3);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T4 t4) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t4);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T5 t5) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t5);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T6 t6) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t6);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7>(T7 t7) => OrType.Make<T1, T2, T3, T4, T5, T6, T7>(t7);
     }
 
 
@@ -903,12 +939,20 @@ namespace Prototypist.Toolbox
 
         public override bool Equals(object obj)
         {
-            if (obj is OrType<T1, T2, T3, T4, T5, T6, T7> other)
+            if (obj is OrType<T1, T2, T3, T4, T5, T6, T7, T8> other)
             {
                 return other.Representative().NullSafeEqual(Representative());
             }
             return false;
         }
+
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T1 t1) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t1);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T2 t2) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t2);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T3 t3) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t3);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T4 t4) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t4);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T5 t5) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t5);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T6 t6) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t6);
+        public static implicit operator OrType<T1, T2, T3, T4, T5, T6, T7, T8>(T7 t7) => OrType.Make<T1, T2, T3, T4, T5, T6, T7, T8>(t7);
     }
 
     public class OrType_1<T1, T2> : OrType<T1, T2>, IIsDefinately<T1>
@@ -1306,7 +1350,6 @@ namespace Prototypist.Toolbox
         public static OrType<T1, T2, T3, T4, T5, T6> Make<T1, T2, T3, T4, T5, T6>(T4 value) => new OrType_4<T1, T2, T3, T4, T5, T6>(value);
         public static OrType<T1, T2, T3, T4, T5, T6> Make<T1, T2, T3, T4, T5, T6>(T5 value) => new OrType_5<T1, T2, T3, T4, T5, T6>(value);
         public static OrType<T1, T2, T3, T4, T5, T6> Make<T1, T2, T3, T4, T5, T6>(T6 value) => new OrType_6<T1, T2, T3, T4, T5, T6>(value);
-
 
         public static OrType<T1, T2, T3, T4, T5, T6, T7> Make<T1, T2, T3, T4, T5, T6, T7>(T1 value) => new OrType_1<T1, T2, T3, T4, T5, T6, T7>(value);
         public static OrType<T1, T2, T3, T4, T5, T6, T7> Make<T1, T2, T3, T4, T5, T6, T7>(T2 value) => new OrType_2<T1, T2, T3, T4, T5, T6, T7>(value);
