@@ -219,5 +219,26 @@ namespace Prototypist.Toolbox.IEnumerable
             return self.SequenceEqual(other);
         }
 
+
+        public static bool TryFirst<T>(this IEnumerable<T> self, out T first)
+        {
+            if (self.Any()) {
+                first = self.First();
+                return true;
+            }
+            first = default;
+            return false;
+        }
+
+        public static bool TrySingle<T>(this IEnumerable<T> self, out T single)
+        {
+            if (self.Count() == 1)
+            {
+                single = self.First();
+                return true;
+            }
+            single = default;
+            return false;
+        }
     }
 }
