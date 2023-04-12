@@ -8,7 +8,7 @@ namespace Prototypist.Toolbox.IEnumerable
 
     public static class IEnumerableExtensions
     {
-        public static IEnumerable<T> PossilyOrTYpe<T>(this IEnumerable<IIsPossibly<T>> self)
+        public static IEnumerable<T> PossilyOrType<T>(this IEnumerable<IIsPossibly<T>> self)
         {
             return self.Where(x => x.Is(out var _)).Select(x => x.GetOrThrow());
         }
@@ -94,7 +94,44 @@ namespace Prototypist.Toolbox.IEnumerable
             }
 
             return res;
+        }
 
+        public static bool TryLargest<T>(this IEnumerable<T> self, Func<T, double> measure, out T res) {
+            if (self == null)
+            {
+                throw new ArgumentNullException(nameof(self));
+            }
+
+            if (measure == null)
+            {
+                throw new ArgumentNullException(nameof(measure));
+            }
+
+            var enumerator = self.GetEnumerator();
+
+            double score;
+            if (enumerator.MoveNext())
+            {
+                res = enumerator.Current;
+                score = measure(res);
+            }
+            else {
+                res = default;
+                return false;
+            }
+
+            while (enumerator.MoveNext())
+            {
+                var at = enumerator.Current;
+                var atScore = measure(at);
+                if (atScore > score)
+                {
+                    res = at;
+                    score = atScore;
+                }
+            }
+
+            return true; ;
         }
 
         public static T SmallestOrThrow<T>(this IEnumerable<T> self, Func<T, double> measure)
@@ -179,6 +216,46 @@ namespace Prototypist.Toolbox.IEnumerable
             }
 
             return res;
+        }
+
+        public static bool TrySmallest<T>(this IEnumerable<T> self, Func<T, double> measure, out T res)
+        {
+            if (self == null)
+            {
+                throw new ArgumentNullException(nameof(self));
+            }
+
+            if (measure == null)
+            {
+                throw new ArgumentNullException(nameof(measure));
+            }
+
+            var enumerator = self.GetEnumerator();
+
+            double score;
+            if (enumerator.MoveNext())
+            {
+                res = enumerator.Current;
+                score = measure(res);
+            }
+            else
+            {
+                res = default;
+                return false;
+            }
+
+            while (enumerator.MoveNext())
+            {
+                var at = enumerator.Current;
+                var atScore = measure(at);
+                if (atScore < score)
+                {
+                    res = at;
+                    score = atScore;
+                }
+            }
+
+            return true; ;
         }
 
         public static bool SetEqual<T>(this IEnumerable<T> self, IEnumerable<T> other)
