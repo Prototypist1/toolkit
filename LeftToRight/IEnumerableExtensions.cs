@@ -317,5 +317,46 @@ namespace Prototypist.Toolbox.IEnumerable
             single = default;
             return false;
         }
+
+        public static bool TryLast<T>(this IEnumerable<T> self, out T single)
+        {
+            if (self.Any())
+            {
+                single = self.Last();
+                return true;
+            }
+            single = default;
+            return false;
+        }
+        public delegate bool TrySelectDelegate<TIn, TOut>(TIn input, out TOut output);
+
+        public static IEnumerable<TOut> TrySelect<TIn, TOut>(this IEnumerable<TIn> self, TrySelectDelegate<TIn, TOut> @delegate) {
+            foreach (var item in self)
+            {
+                if (@delegate(item, out var output)) {
+                    yield return output;
+                }
+            }
+        }
+
+        //public static T FirstOrThrow<T>(this IEnumerable<T> self)
+        //{
+        //    if (self.Any())
+        //    {
+        //        return self.First();
+        //    }
+        //    throw new Ex
+        //}
+
+        //public static T LastOrThrow<T>(this IEnumerable<T> self)
+        //{
+        //    if (self.Any())
+        //    {
+        //        first = self.First();
+        //        return true;
+        //    }
+        //    first = default;
+        //    return false;
+        //}
     }
 }
